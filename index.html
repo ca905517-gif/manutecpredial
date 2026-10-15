@@ -4,270 +4,39 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Manutec Predial | Elétrica, Automação e Refrigeração</title>
+<title>Manutec Predial | Elétrica, Automação, Refrigeração e Climatização</title>
+
+<meta name="description" content="Manutec Predial - serviços técnicos de instalações elétricas, automação, comandos elétricos, refrigeração e climatização em Volta Redonda e região.">
 
 <style>
+:root{
+    --azul:#0d3b66;
+    --azul2:#155b8f;
+    --azul-claro:#eef6fb;
+    --verde:#25D366;
+    --texto:#263238;
+    --cinza:#66747d;
+    --fundo:#ffffff;
+    --borda:#e7edf1;
+}
+
 *{
     box-sizing:border-box;
     margin:0;
     padding:0;
+    scroll-behavior:smooth;
 }
 
 body{
     font-family:Arial, Helvetica, sans-serif;
-    background:#f4f6f8;
-    color:#263238;
+    color:var(--texto);
+    background:var(--fundo);
     line-height:1.6;
 }
 
-header{
-    background:#123d63;
-    color:white;
-    padding:22px;
-    text-align:center;
-}
-
-header h1{
-    font-size:30px;
-}
-
-header p{
-    margin-top:5px;
-}
-
-nav{
-    margin-top:15px;
-}
-
-nav a{
-    color:white;
+a{
     text-decoration:none;
-    margin:0 8px;
-    font-weight:bold;
 }
 
-.hero{
-    background:#e9f0f6;
-    padding:55px 20px;
-    text-align:center;
-}
-
-.hero h2{
-    color:#123d63;
-    font-size:30px;
-    margin-bottom:15px;
-}
-
-.hero p{
-    max-width:850px;
-    margin:auto;
-    font-size:18px;
-}
-
-.botao{
-    display:inline-block;
-    background:#25D366;
-    color:white;
-    padding:13px 22px;
-    margin-top:25px;
-    border-radius:6px;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-section{
-    max-width:1100px;
-    margin:auto;
-    padding:45px 20px;
-}
-
-h2{
-    color:#123d63;
-    margin-bottom:20px;
-    text-align:center;
-}
-
-.sobre p{
-    max-width:900px;
-    margin:auto;
-    text-align:center;
-}
-
-.servicos{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-    gap:18px;
-}
-
-.card{
-    background:white;
-    padding:22px;
-    border-radius:8px;
-    box-shadow:0 2px 8px rgba(0,0,0,.10);
-}
-
-.card h3{
-    color:#123d63;
-    margin-bottom:8px;
-}
-
-.institucional{
-    background:white;
-}
-
-.institucional div{
-    max-width:900px;
-    margin:25px auto;
-}
-
-.portfolio{
-    text-align:center;
-}
-
-.portfolio p{
-    max-width:850px;
-    margin:auto;
-}
-
-.galeria{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:15px;
-    margin-top:30px;
-}
-
-.foto{
-    background:#e2e7eb;
-    min-height:180px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:8px;
-    color:#607d8b;
-    padding:20px;
-}
-
-.contato{
-    text-align:center;
-}
-
-footer{
-    background:#123d63;
-    color:white;
-    text-align:center;
-    padding:25px 15px;
-}
-
-@media(max-width:600px){
-    header h1{
-        font-size:25px;
-    }
-
-    .hero h2{
-        font-size:25px;
-    }
-
-    nav a{
-        display:inline-block;
-        margin:5px;
-    }
-}
-</style>
-</head>
-
-<body>
-
-<header>
-    <h1>MANUTEC PREDIAL</h1>
-    <p>Instalação • Manutenção • Elétrica • Automação • Refrigeração</p>
-
-    <nav>
-        <a href="#sobre">Sobre</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#portfolio">Portfólio</a>
-        <a href="#contato">Contato</a>
-    </nav>
-</header>
-
-<section class="hero">
-    <h2>Soluções técnicas com experiência prática</h2>
-
-    <p>
-        Serviços de instalação e manutenção elétrica, eletroeletrônica,
-        automação, refrigeração e climatização para aplicações residenciais,
-        comerciais e industriais.
-    </p>
-
-    <a class="botao"
-       href="https://wa.me/5521969799854"
-       target="_blank">
-       Solicite um orçamento pelo WhatsApp
-    </a>
-</section>
-
-<section id="sobre" class="sobre">
-    <h2>Sobre a Manutec Predial</h2>
-
-    <p>
-        A Manutec Predial atua na execução de serviços técnicos,
-        manutenção, diagnóstico e desenvolvimento de soluções nas áreas
-        elétrica, eletroeletrônica, automação, refrigeração e climatização.
-        Trabalhamos com compromisso, segurança, qualidade e respeito ao
-        cliente, buscando soluções eficientes e adequadas a cada necessidade.
-    </p>
-</section>
-
-<section id="servicos">
-    <h2>Nossos Serviços</h2>
-
-    <div class="servicos">
-
-        <div class="card">
-            <h3>Instalações Elétricas</h3>
-            <p>
-                Instalação, manutenção, adequações elétricas,
-                quadros e circuitos elétricos.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Comandos Elétricos</h3>
-            <p>
-                Montagem, manutenção e diagnóstico de painéis,
-                comandos e sistemas de acionamento.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Automação Industrial</h3>
-            <p>
-                Sistemas de controle, sensores, relés,
-                CLPs e equipamentos de automação.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Inversores e Soft Starters</h3>
-            <p>
-                Instalação, parametrização e manutenção de
-                inversores de frequência e soft starters.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Motores Elétricos</h3>
-            <p>
-                Instalação, acionamento e diagnóstico
-                de motores elétricos trifásicos.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Refrigeração e Climatização</h3>
-            <p>
-                Instalação, manutenção e diagnóstico de
-                equipamentos e sistemas de refrigeração e climatização.
-            </p>
-        </div>
-
-        <div class="card">
+.container{
+    width:min(112
