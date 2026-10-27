@@ -284,7 +284,160 @@ header .btn{
     </div>
   </div>
 </section><section><div class="container"><div class="section-title"><span>Manutec Predial</span><h2>Missão, visão e valores</h2></div><div class="institutional"><div class="card"><h3>Missão</h3><p>Oferecer soluções técnicas seguras, eficientes e confiáveis, contribuindo para desempenho e economia.</p></div><div class="card"><h3>Visão</h3><p>Ser reconhecida pela confiança, qualidade, excelência no atendimento e melhoria contínua.</p></div><div class="card"><h3>Valores</h3><p>Segurança, ética, transparência, compromisso, qualidade, responsabilidade e sustentabilidade.</p></div></div></div></section>
-<section class="contact" id="contato"><div class="container contact-grid"><div><h2>Precisa de um serviço técnico?</h2><p>Entre em contato para conversar sobre sua necessidade e solicitar um orçamento.</p><a class="btn wa" href="https://wa.me/5521969799854">Falar no WhatsApp</a></div><div class="contact-info"><div><strong>WhatsApp:</strong> (21) 96979-9854</div><div><strong>E-mail:</strong> manutecpredial940@yahoo.com</div><div><strong>Atendimento:</strong> Volta Redonda e região — RJ</div></div></div></section>
+
+<!-- INICIO DOS PLANOS DE MANUTENCAO -->
+<section id="planos-manutencao" style="padding:55px 18px;background:#f1f5f9;">
+  <div style="max-width:1150px;margin:auto;">
+    <h2 style="text-align:center;color:#173b63;font-size:30px;">
+      Planos de Manutenção
+    </h2>
+    <p style="text-align:center;color:#475569;margin-bottom:25px;">
+      Planejamento e execução de manutenção preventiva e corretiva.
+      Escolha o plano ideal para sua empresa.
+    </p>
+
+    <div style="text-align:center;margin-bottom:28px;">
+      <label for="prazo-manutec" style="font-weight:bold;color:#173b63;">
+        Duração do contrato:
+      </label>
+      <select id="prazo-manutec" onchange="atualizarPlanos()"
+        style="padding:10px;border-radius:8px;margin-left:8px;">
+        <option value="6">6 meses</option>
+        <option value="12" selected>12 meses</option>
+        <option value="24">24 meses</option>
+      </select>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;">
+
+      <article style="background:white;padding:25px;border-radius:14px;box-shadow:0 4px 15px #0001;">
+        <h3 style="color:#173b63;">ESSENCIAL</h3>
+        <p><strong>1 visita por semana</strong></p>
+        <h2 id="preco-essencial" style="color:#173b63;">R$ 1.090/mês</h2>
+        <p>Planejamento e manutenção preventiva e corretiva.</p>
+        <p>Inspeções, medições e relatórios técnicos.</p>
+        <p><strong>Atendimento corretivo: até 24 horas úteis.</strong></p>
+        <button onclick="contratarPlano('Essencial')"
+          style="width:100%;padding:13px;background:#16803c;color:white;border:0;border-radius:8px;cursor:pointer;">
+          Solicitar contratação
+        </button>
+      </article>
+
+      <article style="background:white;padding:25px;border-radius:14px;box-shadow:0 4px 15px #0001;">
+        <h3 style="color:#173b63;">PROFISSIONAL</h3>
+        <p><strong>3 visitas por semana</strong></p>
+        <h2 id="preco-profissional" style="color:#173b63;">R$ 2.590/mês</h2>
+        <p>Planejamento e manutenção preventiva e corretiva.</p>
+        <p>Acompanhamento técnico frequente e relatórios.</p>
+        <p><strong>Atendimento corretivo: até 8 horas úteis.</strong></p>
+        <button onclick="contratarPlano('Profissional')"
+          style="width:100%;padding:13px;background:#16803c;color:white;border:0;border-radius:8px;cursor:pointer;">
+          Solicitar contratação
+        </button>
+      </article>
+
+      <article style="background:white;padding:25px;border-radius:14px;box-shadow:0 4px 15px #0001;border-top:5px solid #173b63;">
+        <h3 style="color:#173b63;">PRIORITÁRIO</h3>
+        <p><strong>5 visitas por semana</strong></p>
+        <h2 id="preco-prioritario" style="color:#173b63;">R$ 4.190/mês</h2>
+        <p>Planejamento e manutenção preventiva e corretiva.</p>
+        <p>Acompanhamento técnico de segunda a sexta-feira.</p>
+        <p><strong>Atendimento prioritário: até 4 horas úteis.</strong></p>
+        <button onclick="contratarPlano('Prioritário')"
+          style="width:100%;padding:13px;background:#16803c;color:white;border:0;border-radius:8px;cursor:pointer;">
+          Solicitar contratação
+        </button>
+      </article>
+
+    </div>
+
+    <div style="background:white;padding:22px;margin-top:25px;border-radius:12px;color:#334155;">
+      <h3 style="color:#173b63;">Cobertura dos planos</h3>
+      <p>Podem ser incluídos equipamentos elétricos, eletrônicos,
+      quadros e painéis, automação, motores, refrigeração,
+      climatização, CFTV, câmeras, controle de acesso e SPDA,
+      conforme avaliação técnica e relação contratual.</p>
+
+      <h3 style="color:#173b63;">Condições de contratação</h3>
+      <p><strong>Valores a partir dos preços apresentados.</strong>
+      Sujeitos a alterações conforme quantidade, tipo, localização,
+      condições e complexidade dos equipamentos abrangidos.</p>
+
+      <p>A mensalidade inclui a mão de obra de planejamento e execução
+      das manutenções preventivas e corretivas previstas no contrato.</p>
+
+      <p>Ferramentas, instrumentos de medição de uso habitual,
+      EPIs e uniformes são fornecidos pela Manutec Predial.</p>
+
+      <p><strong>Peças, componentes, materiais e insumos aplicados
+      nos equipamentos são fornecidos ou custeados pelo contratante.</strong>
+      Obras, ampliações e serviços extraordinários dependem de
+      orçamento e aprovação específicos.</p>
+
+      <p>Os prazos de atendimento corretivo referem-se ao início
+      do atendimento técnico, dentro do horário e condições
+      definidos em contrato, e não ao prazo de conclusão do reparo.</p>
+
+      <p><strong>A contratação depende de avaliação técnica,
+      aprovação da proposta definitiva e assinatura de contrato
+      específico da modalidade escolhida.</strong></p>
+
+      <p>Assinatura digital ou presencial, mediante combinação
+      com a Manutec Predial.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+const precosManutec = {
+  "6":  [1190, 2790, 4490],
+  "12": [1090, 2590, 4190],
+  "24": [990, 2390, 3890]
+};
+
+function atualizarPlanos() {
+  const prazo = document.getElementById("prazo-manutec").value;
+  const valores = precosManutec[prazo];
+  const ids = ["essencial", "profissional", "prioritario"];
+
+  ids.forEach((id, indice) => {
+    document.getElementById("preco-" + id).textContent =
+      valores[indice].toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+        maximumFractionDigits: 0
+      }) + "/mês";
+  });
+}
+
+function contratarPlano(plano) {
+  const prazo = document.getElementById("prazo-manutec").value;
+  const nomes = ["Essencial", "Profissional", "Prioritário"];
+  const indice = nomes.indexOf(plano);
+  const valor = precosManutec[prazo][indice];
+
+  const mensagem =
+    "Olá, Manutec Predial! Tenho interesse no Plano " +
+    plano + ", com contrato de " + prazo +
+    " meses e mensalidade inicial de " +
+    valor.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL"
+    }) +
+    ". Gostaria de solicitar avaliação técnica e receber " +
+    "a proposta e o contrato específico para assinatura " +
+    "digital ou presencial.";
+
+  window.open(
+    "https://wa.me/5521969799854?text=" +
+    encodeURIComponent(mensagem),
+    "_blank"
+  );
+}
+</script>
+<!-- FIM DOS PLANOS DE MANUTENCAO -->
+
+  <section class="contact" id="contato"><div class="container contact-grid"><div><h2>Precisa de um serviço técnico?</h2><p>Entre em contato para conversar sobre sua necessidade e solicitar um orçamento.</p><a class="btn wa" href="https://wa.me/5521969799854">Falar no WhatsApp</a></div><div class="contact-info"><div><strong>WhatsApp:</strong> (21) 96979-9854</div><div><strong>E-mail:</strong> manutecpredial940@yahoo.com</div><div><strong>Atendimento:</strong> Volta Redonda e região — RJ</div></div></div></section>
 </main>
 <footer><div class="container footer-inner"><span>© 2026 Manutec Predial. Todos os direitos reservados.</span><span>CNPJ: 69.618.082/0001-39</span></div></footer>
 <a class="float-wa" href="https://wa.me/5521969799854" aria-label="WhatsApp">☎️</a>
