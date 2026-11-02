@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Área do Aluno | Manutec EAD</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f3f6fa;
+      color: #173b67;
+    }
+    .painel-topo {
+      background: #0b2442;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    .painel-topo h1 { margin: 0 0 10px; }
+    .painel-topo a { color: white; }
+    .conteudo {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    .cartao {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 3px 12px #00000012;
+    }
+    .modulos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .modulo {
+      background: #eef4fb;
+      border: 1px solid #d5e2f0;
+      border-radius: 10px;
+      padding: 18px;
+    }
+    .modulo h3 { margin-top: 0; }
+    .botao {
+      display: inline-block;
+      background: #174477;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-top: 10px;
+    }
+    .aviso {
+      color: #52657a;
+      font-size: 14px;
+    }
+    progress {
+      width: 100%;
+      height: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<header class="painel-topo">
+  <h1>⚡ MANUTEC EAD</h1>
+  <p>Área do Aluno</p>
+  <a href="index.html">Voltar aos cursos</a>
+</header>
+
+<main class="conteudo">
+
+  <section class="cartao">
+    <h2>Bem-vindo à Área do Aluno!</h2>
+    <p>Curso: <strong>ELETRICISTA PREDIAL</strong></p>
+    <p>Fundamentos da Eletricidade e Instalações Elétricas Residenciais</p>
+    <p>160 horas | 10 módulos | 100% EAD</p>
+    <p class="aviso">Painel demonstrativo em desenvolvimento. O acesso individual será liberado após a implantação do sistema de login.</p>
+  </section>
+
+  <section class="cartao">
+    <h2>Meu progresso</h2>
+    <progress value="0" max="100"></progress>
+    <p>0% concluído</p>
+    <p class="aviso">O progresso e as notas serão atualizados quando o sistema de acompanhamento estiver integrado.</p>
+  </section>
+
+  <section class="cartao">
+    <h2>Meus módulos</h2>
+    <div class="modulos">
+      <div class="modulo"><h3>Módulo 1</h3><p>Fundamentos da Eletricidade</p></div>
+      <div class="modulo"><h3>Módulo 2</h3><p>Grandezas Elétricas e Cálculos</p></div>
+      <div class="modulo"><h3>Módulo 3</h3><p>Circuitos Elétricos</p></div>
+      <div class="modulo"><h3>Módulo 4</h3><p>Condutores e Infraestrutura</p></div>
+      <div class="modulo"><h3>Módulo 5</h3><p>Comandos e Dispositivos Elétricos</p></div>
+      <div class="modulo"><h3>Módulo 6</h3><p>Instalações Elétricas Residenciais e Prediais</p></div>
+      <div class="modulo"><h3>Módulo 7</h3><p>Dispositivos de Proteção e Aterramento</p></div>
+      <div class="modulo"><h3>Módulo 8</h3><p>Dimensionamento de Circuitos</p></div>
+      <div class="modulo"><h3>Módulo 9</h3><p>Diagramas e Simbologia Elétrica</p></div>
+      <div class="modulo"><h3>Módulo 10</h3><p>Revisão e Aplicações Práticas</p></div>
+    </div>
+  </section>
+
+  <section class="cartao">
+    <h2>Avaliações e atividades</h2>
+    <p>Exercícios de fixação, atividades práticas, prova final e recuperação.</p>
+    <p class="aviso">Recursos em desenvolvimento.</p>
+  </section>
+
+  <section class="cartao">
+    <h2>Certificado</h2>
+    <p>Certificado de conclusão após cumprimento dos requisitos do curso.</p>
+    <p class="aviso">Emissão disponível após implantação do sistema de avaliação e certificação.</p>
+  </section>
+
+  <section class="cartao">
+    <h2>Central de Dúvidas</h2>
+    <p>Entre em contato com o instrutor:</p>
+    <a class="botao" href="mailto:manutecpredial940@yahoo.com?subject=Duvida%20-%20Manutec%20EAD">Enviar dúvida por e-mail</a>
+    <p class="aviso">O grupo oficial de WhatsApp será disponibilizado futuramente aos alunos matriculados.</p>
+  </section>
+
+</main>
+</body>
+</html>
