@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 1 | Manutec EAD</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f1f5f9;
+      color: #172b44;
+      line-height: 1.6;
+    }
+    header {
+      background: #0b2849;
+      color: white;
+      padding: 25px 18px;
+      text-align: center;
+    }
+    header h1 { margin: 0; font-size: 28px; }
+    header p { margin: 8px 0 0; }
+    main {
+      max-width: 950px;
+      margin: 25px auto;
+      padding: 0 16px;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 10px #00000010;
+    }
+    h2 { color: #0b477c; }
+    .tag {
+      display: inline-block;
+      background: #dcecff;
+      color: #0b477c;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-weight: bold;
+    }
+    .question {
+      padding: 15px 0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .question label {
+      display: block;
+      margin: 8px 0;
+      cursor: pointer;
+    }
+    button, .btn {
+      background: #0b477c;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    button:hover, .btn:hover { background: #08355d; }
+    .resultado {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    .aviso {
+      background: #fff7e6;
+      border-left: 4px solid #d99a18;
+      padding: 12px;
+      border-radius: 5px;
+    }
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>MANUTEC EAD</h1>
+  <p>ELETRICISTA PREDIAL</p>
+  <p>Fundamentos da Eletricidade e Instalações Elétricas Residenciais</p>
+</header>
+
+<main>
+  <section class="card">
+    <span class="tag">MÓDULO 1</span>
+    <h2>Fundamentos da Eletricidade</h2>
+    <p>Bem-vindo ao primeiro módulo do curso de capacitação profissional Eletricista Predial, com carga horária total de 160 horas.</p>
+    <p>Nesta etapa, você conhecerá os conceitos fundamentais da eletricidade e sua aplicação nas instalações residenciais.</p>
+  </section>
+
+  <section class="card">
+    <h2>Objetivos de aprendizagem</h2>
+    <ul>
+      <li>Compreender o conceito de eletricidade.</li>
+      <li>Identificar tensão, corrente, resistência e potência elétrica.</li>
+      <li>Conhecer as unidades de medida.</li>
+      <li>Entender os princípios básicos de segurança elétrica.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Conteúdo da aula</h2>
+
+    <h3>1. O que é eletricidade?</h3>
+    <p>A eletricidade está relacionada à presença e ao movimento de cargas elétricas. Ela é utilizada para alimentar equipamentos, iluminação e diversos sistemas.</p>
+
+    <h3>2. Tensão elétrica</h3>
+    <p>A tensão representa a diferença de potencial elétrico entre dois pontos. Sua unidade é o volt (V).</p>
+
+    <h3>3. Corrente elétrica</h3>
+    <p>A corrente elétrica corresponde à taxa de passagem de carga elétrica por um ponto do circuito. Sua unidade é o ampère (A).</p>
+
+    <h3>4. Resistência elétrica</h3>
+    <p>A resistência elétrica representa a oposição à passagem da corrente. Sua unidade é o ohm (Ω).</p>
+
+    <h3>5. Potência elétrica</h3>
+    <p>A potência indica a taxa de transformação ou transferência de energia elétrica. Sua unidade é o watt (W).</p>
+
+    <h3>6. Lei de Ohm</h3>
+    <p>Para um elemento ôhmico, a relação entre tensão, corrente e resistência é:</p>
+    <p><strong>U = R × I</strong></p>
+
+    <div class="aviso">
+      <strong>Segurança:</strong> atividades práticas em instalações elétricas exigem procedimentos de segurança, desenergização e verificação de ausência de tensão por profissional habilitado ou devidamente autorizado, conforme aplicável.
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Apostila do Módulo 1</h2>
+    <p>O material completo em PDF será disponibilizado aqui após a configuração do acesso exclusivo dos alunos matriculados.</p>
+    <p><strong>Status:</strong> material em preparação.</p>
+  </section>
+
+  <section class="card">
+    <h2>Exercícios de fixação</h2>
+    <p>Responda às cinco questões para testar seus conhecimentos.</p>
+
+    <form id="quiz">
+      <div class="question">
+        <strong>1. Qual é a unidade da tensão elétrica?</strong>
+        <label><input type="radio" name="q1" value="a"> Ampère</label>
+        <label><input type="radio" name="q1" value="b"> Volt</label>
+        <label><input type="radio" name="q1" value="c"> Watt</label>
+        <label><input type="radio" name="q1" value="d"> Ohm</label>
+      </div>
+
+      <div class="question">
+        <strong>2. Qual grandeza é medida em ampères?</strong>
+        <label><input type="radio" name="q2" value="a"> Resistência</label>
+        <label><input type="radio" name="q2" value="b"> Potência</label>
+        <label><input type="radio" name="q2" value="c"> Corrente elétrica</label>
+        <label><input type="radio" name="q2" value="d"> Energia</label>
+      </div>
+
+      <div class="question">
+        <strong>3. Qual é a unidade da resistência elétrica?</strong>
+        <label><input type="radio" name="q3" value="a"> Ohm</label>
+        <label><input type="radio" name="q3" value="b"> Volt</label>
+        <label><input type="radio" name="q3" value="c"> Ampère</label>
+        <label><input type="radio" name="q3" value="d"> Watt</label>
+      </div>
+
+      <div class="question">
+        <strong>4. Qual fórmula representa a Lei de Ohm?</strong>
+        <label><input type="radio" name="q4" value="a"> P = U × I</label>
+        <label><input type="radio" name="q4" value="b"> U = R × I</label>
+        <label><input type="radio" name="q4" value="c"> E = P × t</label>
+        <label><input type="radio" name="q4" value="d"> R = P × t</label>
+      </div>
+
+      <div class="question">
+        <strong>5. Qual é a unidade da potência elétrica?</strong>
+        <label><input type="radio" name="q5" value="a"> Volt</label>
+        <label><input type="radio" name="q5" value="b"> Ohm</label>
+        <label><input type="radio" name="q5" value="c"> Ampère</label>
+        <label><input type="radio" name="q5" value="d"> Watt</label>
+      </div>
+
+      <p><button type="submit">Corrigir exercícios</button></p>
+      <div id="resultado" class="resultado" aria-live="polite"></div>
+    </form>
+  </section>
+
+  <section class="card">
+    <h2>Navegação</h2>
+    <a class="btn" href="aluno.html">Voltar à Área do Aluno</a>
+    <p>O próximo módulo será conectado após sua criação.</p>
+  </section>
+</main>
+
+<footer>
+  Manutec EAD — Capacitação Profissional
+</footer>
+
+<script>
+  document.getElementById("quiz").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const respostas = {
+      q1: "b",
+      q2: "c",
+      q3: "a",
+      q4: "b",
+      q5: "d"
+    };
+
+    let acertos = 0;
+
+    for (const [questao, correta] of Object.entries(respostas)) {
+      const marcada = document.querySelector(
+        'input[name="' + questao + '"]:checked'
+      );
+
+      if (!marcada) {
+        document.getElementById("resultado").textContent =
+          "Responda todas as cinco questões antes de corrigir.";
+        return;
+      }
+
+      if (marcada.value === correta) {
+        acertos++;
+      }
+    }
+
+    document.getElementById("resultado").textContent =
+      "Você acertou " + acertos + " de 5 questões. " +
+      "Esta é uma correção demonstrativa; a nota ainda não é salva.";
+  });
+</script>
+
+</body>
+</html>
