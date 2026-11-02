@@ -225,39 +225,76 @@
 </footer>
 
 <script>
-  document.getElementById("quiz").addEventListener("submit", function(event) {
-    event.preventDefault();
+const respostas = {
+  q1: "b",
+  q2: "c",
+  q3: "a",
+  q4: "b",
+  q5: "d"
+};
 
-    const respostas = {
-      q1: "b",
-      q2: "c",
-      q3: "a",
-      q4: "b",
-      q5: "d"
-    };
+const comentarios = {
+  q1: "A tensão elétrica é medida em volts (V). O voltímetro é utilizado para medir essa grandeza.",
+  q2: "A corrente elétrica é medida em ampères (A). Ela representa o fluxo de cargas elétricas.",
+  q3: "A resistência elétrica é medida em ohms (Ω). Ela representa a oposição à passagem da corrente elétrica.",
+  q4: "A Lei de Ohm relaciona tensão, resistência e corrente elétrica: I = V / R.",
+  q5: "A potência elétrica é medida em watts (W). Em um circuito resistivo, podemos calcular P = V × I."
+};
 
-    let acertos = 0;
+const nomes = {
+  q1: "Volt",
+  q2: "Corrente elétrica",
+  q3: "Ohm",
+  q4: "I = V / R",
+  q5: "Watt"
+};
 
-    for (const [questao, correta] of Object.entries(respostas)) {
-      const marcada = document.querySelector(
-        'input[name="' + questao + '"]:checked'
-      );
+document.getElementById("quiz").addEventListener("submit", function(event) {
+  event.preventDefault();
 
-      if (!marcada) {
-        document.getElementById("resultado").textContent =
-          "Responda todas as cinco questões antes de corrigir.";
-        return;
-      }
+  const marcadas = {};
 
-      if (marcada.value === correta) {
-        acertos++;
-      }
+  for (const questao of Object.keys(respostas)) {
+    const marcada = document.querySelector(
+      'input[name="' + questao + '"]:checked'
+    );
+
+    if (!marcada) {
+      document.getElementById("resultado").textContent =
+        "Responda todas as cinco questões antes de corrigir.";
+      return;
     }
 
-    document.getElementById("resultado").textContent =
-      "Você acertou " + acertos + " de 5 questões. " +
-      "Esta é uma correção demonstrativa; a nota ainda não é salva.";
-  });
+    marcadas[questao] = marcada.value;
+  }
+
+  let acertos = 0;
+  let detalhes = "";
+
+  for (const [questao, correta] of Object.entries(respostas)) {
+    const acertou = marcadas[questao] === correta;
+
+    if (acertou) acertos++;
+
+    detalhes +=
+      "\n\nQuestão " + questao.substring(1) +
+      (acertou ? " — CORRETA" : " — INCORRETA") +
+      "\nResposta correta: " + nomes[questao] +
+      "\nExplicação: " + comentarios[questao];
+  }
+
+  const nota = (acertos * 2).toFixed(1).replace(".", ",");
+
+  const resultado = document.getElementById("resultado");
+  resultado.style.whiteSpace = "pre-line";
+  resultado.textContent =
+    "Você acertou " + acertos + " de 5 questões." +
+    "\nNota: " + nota + " de 10." +
+    "\n\nCORREÇÃO COMENTADA:" +
+    detalhes +
+    "\n\nEsta correção é demonstrativa. A nota ainda não é salva.";
+});
+
 </script>
 
 </body>
