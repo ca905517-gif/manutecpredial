@@ -29,10 +29,11 @@ body {
 /* CABECALHO */
 
 header {
-  background: var(--azul-escuro);
-  color: white;
-  text-align: center;
-  padding: 30px 15px;
+    background: linear-gradient(120deg, #082b50, #0863a6);
+    border-bottom: 4px solid #ffda00;
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
 }
 
 .logo h1 {
