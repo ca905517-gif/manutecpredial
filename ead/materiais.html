@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblioteca do Aluno | Manutec EAD</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f2f6fb;
+      color: #173b67;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(120deg, #082b50, #0863a6);
+      color: white;
+      padding: 35px 20px;
+      text-align: center;
+      border-bottom: 5px solid #ffcb05;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 30px;
+    }
+
+    header p {
+      margin: 8px 0;
+    }
+
+    main {
+      max-width: 1050px;
+      margin: 30px auto;
+      padding: 0 16px;
+    }
+
+    .intro, .material {
+      background: white;
+      border-radius: 12px;
+      padding: 22px;
+      margin-bottom: 18px;
+      box-shadow: 0 3px 12px rgba(0,0,0,.07);
+    }
+
+    h2 { color: #084d85; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .material {
+      margin: 0;
+      border-top: 4px solid #0871ba;
+    }
+
+    .material h3 {
+      color: #073b6a;
+      margin-top: 0;
+    }
+
+    .horas {
+      color: #52677c;
+      font-size: 14px;
+    }
+
+    .status {
+      display: inline-block;
+      background: #fff3cd;
+      color: #755500;
+      padding: 7px 11px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #084d85;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-top: 15px;
+    }
+
+    .btn:hover { background: #06365e; }
+
+    .aviso {
+      background: #eaf4ff;
+      border-left: 4px solid #0871ba;
+      padding: 15px;
+      border-radius: 6px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 15px;
+      color: #60758b;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>MANUTEC EAD</h1>
+  <p><strong>ELETRICISTA PREDIAL</strong></p>
+  <p>Fundamentos da Eletricidade e Instalações Elétricas Residenciais</p>
+  <p>Biblioteca de Materiais Didáticos | 160 horas</p>
+</header>
+
+<main>
+
+  <section class="intro">
+    <h2>Biblioteca do Aluno</h2>
+    <p>
+      Bem-vindo à biblioteca de materiais didáticos do curso
+      Eletricista Predial da Manutec EAD.
+    </p>
+
+    <div class="aviso">
+      Esta página está em desenvolvimento.
+      Os arquivos completos serão disponibilizados
+      exclusivamente aos alunos com matrícula confirmada,
+      após a implantação do sistema de login.
+    </div>
+  </section>
+
+  <h2>Apostilas dos 10 módulos</h2>
+
+  <section class="grid" id="lista-modulos"></section>
+
+  <h2>Materiais complementares</h2>
+
+  <section class="grid">
+
+    <article class="material">
+      <h3>Material Complementar do Curso Eletricista Predial</h3>
+      <p>
+        Circuitos em série e paralelo, dispositivos de proteção,
+        QDC, aterramento, barramentos e infraestrutura elétrica.
+      </p>
+      <span class="status">Acesso após matrícula</span>
+    </article>
+
+    <article class="material">
+      <h3>Guia de Bolso do Eletricista</h3>
+      <p>
+        Fórmulas, tabelas de consulta, orientações de segurança
+        e informações úteis para o dia a dia profissional.
+      </p>
+      <span class="status">Acesso após matrícula</span>
+    </article>
+
+  </section>
+
+  <section class="intro" style="margin-top:25px;">
+    <h2>Suporte ao aluno</h2>
+    <p>
+      Em caso de dúvidas sobre o conteúdo, entre em contato
+      com a equipe Manutec EAD.
+    </p>
+    <p>
+      <a href="mailto:manutecpredial940@yahoo.com">
+        manutecpredial940@yahoo.com
+      </a>
+    </p>
+
+    <a class="btn" href="aluno.html">
+      Voltar à Área do Aluno
+    </a>
+  </section>
+
+</main>
+
+<footer>
+  Manutec EAD — Capacitação Profissional
+  <p>www.manutecpredial.com.br</p>
+</footer>
+
+<script>
+  const modulos = [
+    ["Profissão, Eletricidade e Segurança", 12],
+    ["Grandezas Elétricas e Cálculos", 20],
+    ["Circuitos e Ligações Básicas", 16],
+    ["Condutores e Infraestrutura", 16],
+    ["Ferramentas e Instrumentos de Medição", 16],
+    ["Instalações Elétricas Residenciais e Prediais", 20],
+    ["Dispositivos de Proteção e Aterramento", 20],
+    ["Quadros de Distribuição e Dimensionamento", 16],
+    ["Diagramas Elétricos e Simbologia", 12],
+    ["Diagnósticos e Manutenção Elétrica", 12]
+  ];
+
+  const lista = document.getElementById("lista-modulos");
+
+  modulos.forEach((modulo, indice) => {
+    const artigo = document.createElement("article");
+    artigo.className = "material";
+
+    const titulo = document.createElement("h3");
+    titulo.textContent = `Módulo ${indice + 1} — ${modulo[0]}`;
+
+    const horas = document.createElement("p");
+    horas.className = "horas";
+    horas.textContent = `Carga horária: ${modulo[1]} horas`;
+
+    const status = document.createElement("span");
+    status.className = "status";
+    status.textContent = "Acesso após matrícula";
+
+    artigo.append(titulo, horas, status);
+    lista.appendChild(artigo);
+  });
+</script>
+
+</body>
+</html>
