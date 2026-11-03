@@ -207,9 +207,13 @@
         <label><input type="radio" name="q5" value="c"> Ampère</label>
         <label><input type="radio" name="q5" value="d"> Watt</label>
       </div>
-
-      <p><button type="submit">Corrigir exercícios</button></p>
-      <div id="resultado" class="resultado" aria-live="polite"></div>
+      <p><button type="submit">Corrigir exercícios</button></p
+      <p>
+  <button type="reset" id="refazer" style="background:#64748b;">
+    🔄 Refazer exercícios
+  </button>
+</p>
+       <div id="resultado" class="resultado" aria-live="polite"></div>
     </form>
   </section>
 
@@ -294,7 +298,9 @@ document.getElementById("quiz").addEventListener("submit", function(event) {
     detalhes +
     "\n\nEsta correção é demonstrativa. A nota ainda não é salva.";
 });
-
+document.getElementById("refazer").addEventListener("click", function() {
+  document.getElementById("resultado").textContent = "";
+});
 </script>
 
 </body>
