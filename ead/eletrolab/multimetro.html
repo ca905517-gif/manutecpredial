@@ -1,0 +1,174 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Manutec EletroLab • Multímetro 2.5</title>
+<style>
+:root{font-family:Arial,Helvetica,sans-serif;color:#edf4f7;background:#0c1218}*{box-sizing:border-box}body{margin:0}header{background:#101f2a;border-bottom:3px solid #d22e45;padding:17px 22px;display:flex;justify-content:space-between;gap:12px;align-items:center}header strong{font-size:21px;color:#fff}header span{color:#a5b8c5;font-size:13px}.layout{display:grid;grid-template-columns:minmax(290px,440px) minmax(300px,1fr);gap:22px;max-width:1230px;margin:22px auto;padding:0 16px}.meter-wrap{display:flex;justify-content:center;align-items:flex-start}.meter{width:370px;max-width:100%;background:linear-gradient(125deg,#ed4e58,#9c192b 36%,#f2515a 88%);padding:16px;border-radius:45px 45px 34px 34px;box-shadow:inset 8px 0 6px #ff8990,inset -9px 0 9px #74111e,0 16px 35px #0008}.inner{background:linear-gradient(130deg,#373c40,#171b1e);border:6px solid #262a2e;border-radius:28px;padding:17px 16px 20px}.brand{text-align:center;font-weight:900;letter-spacing:1px;font-size:19px}.brand small{display:block;color:#f7b8be;font-size:11px;letter-spacing:2px;margin:4px 0 12px}.screen{height:113px;background:#b9c9ad;border:9px solid #11191a;border-radius:12px;color:#18251c;padding:7px 12px;box-shadow:inset 0 2px 8px #63765b}.screen .units{font-size:14px;display:flex;justify-content:space-between}.digits{font-family:Consolas,monospace;text-align:right;font-size:53px;letter-spacing:-3px;line-height:1.18}.dial-area{position:relative;width:280px;height:278px;max-width:100%;margin:10px auto}.dial{position:absolute;width:154px;height:154px;top:64px;left:63px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#55595b,#1a1c1e 65%);border:8px solid #101315;box-shadow:0 7px 7px #0008;cursor:grab;touch-action:none}.pointer{position:absolute;width:15px;height:70px;top:5px;left:calc(50% - 7px);background:linear-gradient(90deg,#8a8e90,#e1e5e5,#74787a);clip-path:polygon(50% 0,100% 30%,85% 100%,15% 100%,0 30%);border-radius:7px;transform-origin:50% 72px}.mode{position:absolute;border:0;background:transparent;color:#c9f0e0;font-size:12px;font-weight:bold;cursor:pointer;padding:5px 3px;min-width:51px;border-radius:6px}.mode.active{background:#f4d456;color:#101a1d}.mode[data-i="0"]{left:112px;top:0}.mode[data-i="1"]{right:25px;top:22px}.mode[data-i="2"]{right:0;top:78px}.mode[data-i="3"]{right:8px;bottom:65px}.mode[data-i="4"]{right:30px;bottom:15px}.mode[data-i="5"]{left:107px;bottom:0}.mode[data-i="6"]{left:28px;bottom:15px}.mode[data-i="7"]{left:0;bottom:65px}.mode[data-i="8"]{left:0;top:78px}.mode[data-i="9"]{left:25px;top:22px}.ports{display:flex;justify-content:space-between;gap:9px;margin-top:8px}.port{flex:1;text-align:center}.port label{display:block;font-size:12px;font-weight:bold;margin-bottom:6px}.socket{margin:auto;border:4px solid #aeb9bb;border-radius:50%;background:radial-gradient(circle,#050606 34%,#333 35%,#080a0c 70%);height:43px;width:43px;cursor:pointer}.socket.redplug{border-color:#e24c59;box-shadow:0 0 0 4px #ef5e6340}.socket.blackplug{border-color:#7475a4;box-shadow:0 0 0 4px #7475a440}.leads{display:flex;gap:9px;justify-content:center;margin-top:12px}.lead{border:1px solid #68737b;background:#172027;border-radius:9px;padding:10px;color:white;cursor:pointer}.lead.red{border-color:#e44e61}.lead.selected{outline:3px solid #f3cf58}.lead .tip{display:inline-block;width:10px;height:21px;background:linear-gradient(#b9c3c7 0 35%,#d53b53 35%);border-radius:6px;margin-right:6px;vertical-align:middle}.lead.black .tip{background:linear-gradient(#b9c3c7 0 35%,#2a2e3a 35%)}.panel{background:#19242d;border:1px solid #38505c;border-radius:18px;padding:22px}.panel h2{margin:0 0 12px;font-size:21px}.panel p{color:#b8cbd4;line-height:1.45}.circuits{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.choice{background:#101c24;border:1px solid #526772;color:#eaf3f8;border-radius:10px;padding:12px;text-align:left;cursor:pointer}.choice.active{border:2px solid #41d5aa;background:#075c4f}.choice small{display:block;color:#b4c8ce;margin-top:5px}.terminals{display:flex;gap:12px;margin:14px 0}.terminal{flex:1;min-height:100px;border:2px dashed #748994;border-radius:12px;background:#111c23;color:white;cursor:pointer;padding:12px}.terminal small{display:block;color:#a9bfc8;margin-top:7px}.terminal .contact{width:22px;height:22px;display:block;border:4px solid #85969c;background:#101010;border-radius:50%;margin:5px auto}.terminal .contact.hasred{border-color:#e44759}.terminal .contact.hasblack{border-color:#777be1}.feedback{padding:14px;background:#0c3a36;border-left:4px solid #46c9aa;border-radius:9px;line-height:1.5}.feedback.warn{background:#503123;border-color:#ffbd69}.actions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.actions button{background:#284252;color:#fff;border:1px solid #64808d;border-radius:8px;padding:10px 14px;cursor:pointer}.help{font-size:13px;color:#b8c8ce;margin-top:15px}footer{color:#8fa3ac;text-align:center;padding:20px;font-size:12px}@media(max-width:800px){.layout{grid-template-columns:1fr}.panel{padding:16px}.meter{width:355px}}@media(max-width:370px){.dial-area{transform:scale(.92);transform-origin:center top;margin-bottom:-20px}.circuits{grid-template-columns:1fr}.digits{font-size:43px}}
+
+/* Agrupamento didático por tipo de tensão */
+.mode[data-i="1"],.mode[data-i="2"],.mode[data-i="3"]{color:#b8f6ff}
+.mode[data-i="7"],.mode[data-i="8"],.mode[data-i="9"]{color:#ffe69a}
+.mode.active{color:#101a1d}
+.dial-area:before{content:"V⎓  CONTÍNUA";position:absolute;top:3px;left:0;font-size:10px;font-weight:800;color:#ffe69a;max-width:86px;text-align:center}
+.dial-area:after{content:"V~  ALTERNADA";position:absolute;top:3px;right:0;font-size:10px;font-weight:800;color:#b8f6ff;max-width:86px;text-align:center}
+</style><style id="compact-v21">header{padding:9px 16px}header strong{font-size:17px}header span{font-size:11px}.layout{grid-template-columns:minmax(340px,460px) minmax(280px,1fr);gap:14px;margin:12px auto}.meter{width:390px}.panel{padding:13px;border-radius:12px}.panel h2{font-size:16px;margin:0 0 8px}.panel h2:not(:first-child){margin-top:12px!important}.panel p{font-size:12px;line-height:1.3;margin:5px 0}.circuits{gap:6px}.choice{padding:8px;font-size:12px;border-radius:7px}.choice small{font-size:10px;margin-top:2px}.terminals{gap:8px;margin:7px 0}.terminal{min-height:70px;padding:7px;font-size:12px}.terminal small{font-size:10px;margin-top:2px}.terminal .contact{height:17px;width:17px;margin:3px auto}.actions{margin:7px 0;gap:6px}.actions button{padding:7px 9px;font-size:11px}.feedback{font-size:12px;padding:9px;line-height:1.35}.help{font-size:11px;margin-top:8px}.meter-wrap>.meter{margin:auto}@media(max-width:800px){.layout{grid-template-columns:1fr}.meter{width:390px;max-width:100%}.panel{padding:12px}}@media(min-width:801px){.meter-wrap{position:sticky;top:8px;align-self:start}} 
+/* Agrupamento didático por tipo de tensão */
+.mode[data-i="1"],.mode[data-i="2"],.mode[data-i="3"]{color:#b8f6ff}
+.mode[data-i="7"],.mode[data-i="8"],.mode[data-i="9"]{color:#ffe69a}
+.mode.active{color:#101a1d}
+.dial-area:before{content:"V⎓  CONTÍNUA";position:absolute;top:3px;left:0;font-size:10px;font-weight:800;color:#ffe69a;max-width:86px;text-align:center}
+.dial-area:after{content:"V~  ALTERNADA";position:absolute;top:3px;right:0;font-size:10px;font-weight:800;color:#b8f6ff;max-width:86px;text-align:center}
+</style><style id="v22">
+.meter{background:linear-gradient(110deg,#ffdc30,#dc9b00 35%,#ffdc2c 85%);box-shadow:inset 8px 0 8px #fff58b,inset -8px 0 9px #8c6000,0 14px 30px #0009}.inner{background:linear-gradient(145deg,#33383c,#171b20)}.brand small{color:#ffd944}.mode.active{background:#ffcf28}.panel{background:#19242d}.leads{margin:8px 0 6px}.lead{flex:1;min-height:56px;touch-action:none;cursor:grab;font-size:12px;user-select:none}.lead .tip{width:12px;height:30px}.lead small{display:block;color:#c6d2d7;margin-top:4px}.terminal{touch-action:none}.terminal.drag-over,.socket.drag-over{outline:3px solid #ffda37;background:#304c48}#cableLayer{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:5;overflow:visible}#dragGhost{display:none;position:fixed;pointer-events:none;z-index:100;background:#17252c;color:white;border:2px solid #e54b59;padding:10px 14px;border-radius:18px;font-weight:bold;transform:translate(-50%,-50%);box-shadow:0 8px 18px #0009}.leads .lead.black{border-color:#888bb2}.leads .lead.red{border-color:#ef5b6b}@media(max-width:800px){.meter-wrap{position:static}.layout{gap:12px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+
+/* Agrupamento didático por tipo de tensão */
+.mode[data-i="1"],.mode[data-i="2"],.mode[data-i="3"]{color:#b8f6ff}
+.mode[data-i="7"],.mode[data-i="8"],.mode[data-i="9"]{color:#ffe69a}
+.mode.active{color:#101a1d}
+.dial-area:before{content:"V⎓  CONTÍNUA";position:absolute;top:3px;left:0;font-size:10px;font-weight:800;color:#ffe69a;max-width:86px;text-align:center}
+.dial-area:after{content:"V~  ALTERNADA";position:absolute;top:3px;right:0;font-size:10px;font-weight:800;color:#b8f6ff;max-width:86px;text-align:center}
+</style><style id="v24-dial">.dial-area{height:265px}.dial-area:before{content:"CC • V⎓";left:3px;top:63px;font-size:13px;color:#ffe49b}.dial-area:after{content:"CA • V~";right:3px;top:63px;font-size:13px;color:#b8f6ff}.mode{font-size:14px;min-width:65px;padding:8px 4px}.mode[data-i="0"]{left:107px;top:0;right:auto;bottom:auto}.mode[data-i="1"]{left:0;top:118px;right:auto;bottom:auto}.mode[data-i="2"]{right:0;top:118px;left:auto;bottom:auto}.mode[data-i="1"],.mode[data-i="2"]{background:#202a30;border:1px solid #64727a}.mode.active{background:#ffd532!important;color:#111!important}.dial{top:62px}.ports{margin-top:0}</style><style id="v25-functions">
+.dial-area{height:314px;margin-bottom:0}
+.mode[data-i="0"]{left:107px;top:0;right:auto;bottom:auto}
+.mode[data-i="1"]{left:0;top:118px;right:auto;bottom:auto}
+.mode[data-i="2"]{right:0;top:118px;left:auto;bottom:auto}
+.mode[data-i="3"]{right:12px;top:237px;left:auto;bottom:auto}
+.mode[data-i="4"]{left:106px;top:265px;right:auto;bottom:auto}
+.mode[data-i="5"]{left:10px;top:237px;right:auto;bottom:auto}
+.mode[data-i="3"],.mode[data-i="4"],.mode[data-i="5"]{font-size:13px;min-width:64px;background:#202a30;border:1px solid #64727a;color:#d9f3e6}
+.mode.active{background:#ffd532!important;color:#111!important}
+.dial-area:before{top:63px}.dial-area:after{top:63px}
+</style><style id="v27-rotary-functions">
+/* Todas as seis funções são posições físicas ao redor do mesmo seletor. */
+.dial-area{height:282px;margin-bottom:4px}
+.dial-area:before{content:"CC • V⎓";top:61px;left:1px}
+.dial-area:after{content:"CA • V~";top:61px;right:1px}
+.mode{position:absolute;z-index:2;min-width:58px;font-size:14px;padding:7px 3px;border-radius:8px;line-height:1.2}
+.mode[data-i="0"]{left:108px;top:0;right:auto;bottom:auto;background:transparent;border:0}
+.mode[data-i="1"]{left:0;top:118px;right:auto;bottom:auto}
+.mode[data-i="2"]{right:0;top:118px;left:auto;bottom:auto}
+.mode[data-i="3"]{right:0;top:207px;left:auto;bottom:auto}
+.mode[data-i="4"]{left:108px;top:243px;right:auto;bottom:auto}
+.mode[data-i="5"]{left:0;top:207px;right:auto;bottom:auto}
+.mode[data-i="3"],.mode[data-i="4"],.mode[data-i="5"]{background:#202a30;border:1px solid #64727a;color:#d9f3e6}
+.mode.active{background:#ffd532!important;color:#111!important;box-shadow:0 0 0 2px #ffe97b66}
+.dial{top:62px}
+.ports{margin-top:4px}
+@media(max-width:370px){.dial-area{transform:scale(.92);transform-origin:center top;margin-bottom:-16px}}
+</style><style id="manutec-nav-style">
+.manutec-nav{position:sticky;top:0;z-index:99999;background:#13232d;border-bottom:3px solid #ffd237;padding:9px 14px;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;font:700 14px Arial,sans-serif;color:white}
+.manutec-nav a{display:inline-block;text-decoration:none;color:white;background:#2a4351;border:1px solid #79919e;border-radius:8px;padding:10px 14px;margin-left:6px}
+.manutec-nav a.current{background:#ffd237;color:#111;border-color:#ffd237}
+.manutec-nav strong{color:#fff}
+@media(max-width:600px){.manutec-nav{padding:8px;font-size:12px}.manutec-nav a{padding:9px 8px;margin-left:3px}}
+</style></head><body><div class="manutec-nav"><strong>⚡ MANUTEC ELETROLAB — 3.7</strong><nav><a href="qdc.html" class="">Quadro QDC</a><a href="multimetro.html" class="current">Multímetro Digital</a></nav></div><header><div><strong>⚡ MANUTEC ELETROLAB</strong><br><span>Multímetro Digital Virtual • Versão 2.5 • Cabos arrastáveis</span></div><span>Laboratório didático • Sem tensão real</span></header>
+<main class="layout"><div class="meter-wrap"><div><div class="meter"><div class="inner"><div class="brand">MANUTEC <small>DIGITAL MULTIMETER • EAD</small></div><div class="screen"><div class="units"><span id="modeName">DESLIGADO</span><span id="unit"></span></div><div class="digits" id="digits">OFF</div></div><div class="dial-area" id="dialArea"><div class="dial" id="dial" aria-label="Seletor giratório de funções" role="slider" tabindex="0"><div class="pointer" id="pointer"></div></div><div id="modes"></div></div><div class="ports"><div class="port"><label>10A</label><button class="socket" data-port="10A" aria-label="Borne 10A"></button></div><div class="port"><label>COM</label><button class="socket blackplug" data-port="COM" aria-label="Borne COM"></button></div><div class="port"><label>VΩ</label><button class="socket redplug" data-port="VΩ" aria-label="Borne VΩ"></button></div></div></div></div></div></div>
+<section class="panel"><h2>1. Escolha um circuito</h2><div class="circuits" id="circuits"></div><h2 style="margin-top:14px">2. Arraste as pontas de prova</h2><div class="leads" id="probeTray"><button class="lead black" data-lead="black" aria-label="Arrastar ponta preta"><span class="tip"></span>Ponta preta <small id="blackStatus">COM</small></button><button class="lead red" data-lead="red" aria-label="Arrastar ponta vermelha"><span class="tip"></span>Ponta vermelha <small id="redStatus">VΩ</small></button></div><p>Arraste cada ponta até o terminal ou selecione a ponta e toque no terminal.</p><div class="terminals"><button class="terminal" data-terminal="A"><strong id="termA">Terminal A</strong><span class="contact" id="contactA"></span><small id="atA">Sem ponta</small></button><button class="terminal" data-terminal="B"><strong id="termB">Terminal B</strong><span class="contact" id="contactB"></span><small id="atB">Sem ponta</small></button></div><div class="actions"><button id="swap">Inverter pontas</button><button id="clear">Retirar pontas</button><button id="helpBtn">Como utilizar</button></div><h2>3. Resultado e orientação</h2><div class="feedback" id="feedback" aria-live="polite"></div><details class="help"><summary>⚠️ Orientações de segurança</summary>Simulação educacional. Em equipamentos reais, nunca ultrapasse os limites nominais de tensão e categoria de medição. Confira categoria de segurança, tensão nominal, integridade do instrumento e posição dos cabos antes de medir. A entrada 10A não está habilitada nesta versão. O BIP usa um limiar didático de 50 Ω; valores reais variam conforme o instrumento. Nunca teste resistência, diodo ou continuidade em circuito energizado. Em tensão CC, o sinal negativo só aparece com as duas pontas conectadas e a ponta preta em potencial maior que a vermelha. Em CA não há sinal de polaridade fixo.</details></section></main><svg id="cableLayer" aria-hidden="true"></svg><div id="dragGhost" aria-hidden="true"></div><footer>MANUTEC EAD • Multímetro virtual 3.0 • CA/CC • Ω • diodo • continuidade • Desenvolvido para prática didática</footer>
+<script>
+const modes=[['OFF','Desligado'],['V⎓ 600','Tensão contínua (CC) • até 600 V'],['V~ 600','Tensão alternada (CA) • até 600 V'],['Ω','Resistência elétrica'],['▷|','Teste de diodo'],['♪)))','Teste de continuidade']];
+const circuits=[{name:'Tomada 127 V',sub:'Tensão alternada (CA)',kind:'ac',value:127,a:'Fase',b:'Neutro'},{name:'Tomada 220 V',sub:'Tensão alternada (CA)',kind:'ac',value:220,a:'Fase L1',b:'Fase L2'},{name:'Bateria 9 V',sub:'Tensão contínua (CC)',kind:'dc',value:9,a:'Negativo (−)',b:'Positivo (+)'},{name:'Fonte 12 V',sub:'Tensão contínua (CC)',kind:'dc',value:12,a:'Negativo (−)',b:'Positivo (+)'},{name:'Resistor 100 Ω',sub:'Circuito desenergizado',kind:'ohm',value:100,a:'Terminal 1',b:'Terminal 2'},{name:'Resistor 220 Ω',sub:'Circuito desenergizado',kind:'ohm',value:220,a:'Terminal 1',b:'Terminal 2'},{name:'Resistor 1 kΩ',sub:'Circuito desenergizado',kind:'ohm',value:1000,a:'Terminal 1',b:'Terminal 2'},{name:'Resistor 10 kΩ',sub:'Circuito desenergizado',kind:'ohm',value:10000,a:'Terminal 1',b:'Terminal 2'},{name:'Cabo íntegro',sub:'Teste de continuidade',kind:'continuity',value:0.4,a:'Extremidade 1',b:'Extremidade 2'},{name:'Cabo interrompido',sub:'Teste de continuidade',kind:'open',value:null,a:'Extremidade 1',b:'Extremidade 2'},{name:'Diodo de silício',sub:'Componente saudável',kind:'diode',value:0.65,a:'Cátodo (−)',b:'Ânodo (+)'},{name:'Diodo em curto',sub:'Diagnóstico de falha',kind:'diode-short',value:0.01,a:'Cátodo (−)',b:'Ânodo (+)'},{name:'Diodo aberto',sub:'Diagnóstico de falha',kind:'diode-open',value:null,a:'Cátodo (−)',b:'Ânodo (+)'},{name:'Resistor interrompido',sub:'Diagnóstico de falha',kind:'resistor-open',value:null,a:'Terminal 1',b:'Terminal 2'}];
+let state={mode:0,circuit:1,selected:null,ports:{black:'COM',red:'VΩ'},terminals:{A:null,B:null}};
+const $=id=>document.getElementById(id);
+$('modes').innerHTML=modes.map((m,i)=>`<button class="mode" data-i="${i}" title="${m[1]}">${m[0]}</button>`).join('');
+$('circuits').innerHTML=circuits.map((c,i)=>`<button class="choice" data-c="${i}"><strong>${c.name}</strong><small>${c.sub}</small></button>`).join('');
+document.querySelectorAll('.mode').forEach(b=>b.onclick=()=>{state.mode=+b.dataset.i;render()});
+document.querySelectorAll('.choice').forEach(b=>b.onclick=()=>{state.circuit=+b.dataset.c;state.terminals={A:null,B:null};render()});
+document.querySelectorAll('.lead').forEach(b=>b.onclick=()=>{state.selected=b.dataset.lead;render()});
+document.querySelectorAll('.terminal').forEach(b=>b.onclick=()=>{const t=b.dataset.terminal;if(!state.selected){state.selected='black'}const old=state.terminals[t];if(old===state.selected){state.terminals[t]=null}else{for(const key of ['A','B'])if(state.terminals[key]===state.selected)state.terminals[key]=null;state.terminals[t]=state.selected}render()});
+document.querySelectorAll('.socket').forEach(b=>b.onclick=()=>{const p=b.dataset.port;if(!state.selected){message('Selecione primeiro a ponta preta ou vermelha.',true);return}connectPort(state.selected,p)});
+function connectPort(lead,p){if(p==='10A'){message('Entrada 10A indisponível nesta versão: medição de corrente exige circuito em série e proteção apropriada.',true);return}if(lead==='black'&&p!=='COM'){message('Para este exercício, conecte a ponta preta ao COM.',true);return}if(lead==='red'&&p!=='VΩ'){message('Para medir tensão, conecte a ponta vermelha ao borne VΩ.',true);return}state.ports[lead]=p;state.selected=lead;render()}
+$('clear').onclick=()=>{state.terminals={A:null,B:null};state.selected=null;render()};
+$('swap').onclick=()=>{const x=state.terminals.A;state.terminals.A=state.terminals.B;state.terminals.B=x;render()};
+$('helpBtn').onclick=()=>alert('1. Escolha o circuito. 2. Ajuste o seletor. 3. Arraste a ponta preta ou vermelha para os terminais; ou clique na ponta e depois no terminal. 4. As pontas ficam conectadas até você movê-las ou retirar. 5. Observe o display. O instrumento oferece CA/CC até 600 V, resistores de 100 Ω, 220 Ω, 1 kΩ e 10 kΩ, continuidade com BIP, teste de diodo e diagnóstico de componentes em curto ou interrompidos. Para Ω, continuidade e diodo, utilize apenas circuitos desenergizados.');
+let startAngle=0;
+$('dial').addEventListener('pointerdown',e=>{$('dial').setPointerCapture(e.pointerId);setDialFromPointer(e)});
+$('dial').addEventListener('pointermove',e=>{if(e.buttons)setDialFromPointer(e)});
+$('dial').addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowUp'){state.mode=(state.mode+1)%modes.length;render()}if(e.key==='ArrowLeft'||e.key==='ArrowDown'){state.mode=(state.mode+modes.length-1)%modes.length;render()}});
+function setDialFromPointer(e){const r=$('dial').getBoundingClientRect(),x=e.clientX-(r.left+r.width/2),y=e.clientY-(r.top+r.height/2);const angle=(Math.atan2(x,-y)*180/Math.PI+360)%360;const positions=[0,270,90,135,180,225];state.mode=positions.reduce((best,a,i)=>{const d=Math.abs(((angle-a+540)%360)-180);const bd=Math.abs(((angle-positions[best]+540)%360)-180);return d<bd?i:best},0);render()}
+function message(txt,warn=false){$('feedback').textContent=txt;$('feedback').classList.toggle('warn',warn)}
+// BIP real via Web Audio: só é ativado após interação do aluno.
+let audioContext=null, beepOsc=null, beepGain=null, audioUnlocked=false;
+function unlockAudio(){
+  audioUnlocked=true;
+  try{
+    if(!audioContext){
+      const AudioCtor=window.AudioContext||window.webkitAudioContext;
+      if(!AudioCtor)return;
+      audioContext=new AudioCtor();
+      beepOsc=audioContext.createOscillator();
+      beepGain=audioContext.createGain();
+      beepOsc.type='sine';beepOsc.frequency.value=1650;
+      beepGain.gain.value=0;
+      beepOsc.connect(beepGain);beepGain.connect(audioContext.destination);
+      beepOsc.start();
+    }
+    if(audioContext.state==='suspended')audioContext.resume().catch(()=>{});
+    const c=circuits[state.circuit];
+    syncBeep(state.mode===5 && c.kind==='continuity' && !!state.terminals.A && !!state.terminals.B && state.ports.black==='COM' && state.ports.red==='VΩ');
+  }catch(err){console.warn('Áudio indisponível:',err)}
+}
+function syncBeep(shouldBeep){
+  if(!audioUnlocked||!audioContext||!beepGain)return;
+  const t=audioContext.currentTime;
+  beepGain.gain.cancelScheduledValues(t);
+  beepGain.gain.setTargetAtTime(shouldBeep?0.055:0,t,0.012);
+}
+// Eventos reais do usuário permitem o áudio em navegadores modernos.
+document.addEventListener('pointerdown',unlockAudio,{passive:true});
+document.addEventListener('keydown',unlockAudio);
+document.addEventListener('visibilitychange',()=>{if(document.hidden)syncBeep(false);else if(audioUnlocked)syncBeep(state.mode===5 && ['continuity','diode-short'].includes(circuits[state.circuit].kind) && !!state.terminals.A && !!state.terminals.B && state.ports.black==='COM' && state.ports.red==='VΩ')});
+function render(){
+ const c=circuits[state.circuit],m=state.mode,hasBoth=state.terminals.A&&state.terminals.B;
+ const validPorts=state.ports.black==='COM'&&state.ports.red==='VΩ';
+ document.querySelectorAll('.mode').forEach(b=>b.classList.toggle('active',+b.dataset.i===m));
+ document.querySelectorAll('.choice').forEach(b=>b.classList.toggle('active',+b.dataset.c===state.circuit));
+ document.querySelectorAll('.lead').forEach(b=>b.classList.toggle('selected',b.dataset.lead===state.selected));
+ $('pointer').style.transform=`rotate(${[0,-90,90,135,180,-135][m]}deg)`;
+ $('modeName').textContent=modes[m][1];$('termA').textContent=c.a;$('termB').textContent=c.b;
+ for(const t of ['A','B']){const lead=state.terminals[t];$('at'+t).textContent=lead==='black'?'Ponta preta':lead==='red'?'Ponta vermelha':'Sem ponta';$('contact'+t).className='contact'+(lead?' has'+lead:'')}
+ let display='— — —',unit='',msg='Selecione CA ou CC e conecte as duas pontas.',warn=false;
+ if(m===0){display='OFF';msg='Multímetro desligado.'}
+ else if(!validPorts){display='Err';msg='Confira os bornes: preta em COM e vermelha em VΩ.';warn=true}
+ else if(!hasBoth){msg='Conecte as duas pontas para obter a leitura. Uma ponta isolada não determina a polaridade.'}
+ else if(m>=3 && (c.kind==='ac'||c.kind==='dc')){display='Err';msg='PERIGO: não medir resistência, continuidade ou diodo em circuito energizado. Selecione um componente desenergizado.';warn=true}
+ else if(m===1||m===2){
+   if((m===2?'ac':'dc')!==c.kind){display='Err';msg='Selecione a função de tensão CA ou CC compatível com o circuito.';warn=true}
+   else if(Math.abs(c.value)>600){display='OL';msg='Acima do limite de 600 V.';warn=true}
+   else{const negative=m===1 && state.terminals.A==='red' && state.terminals.B==='black';display=(negative?'−':'')+c.value.toFixed(1);unit=m===2?'V CA':'V CC';msg='Medição concluída. Observe a leitura no display.'}
+ }
+ else if(m===3){
+   if(c.kind==='ohm'){display=c.value>=1000?(c.value/1000).toFixed(2):c.value.toFixed(1);unit=c.value>=1000?'kΩ':'Ω';msg='Resistência de '+c.value.toLocaleString('pt-BR')+' Ω. Circuito desenergizado.'}
+   else if(c.kind==='continuity'){display='0.4';unit='Ω';msg='Condutor íntegro: baixa resistência. Para ouvir o sinal, selecione continuidade.'}
+   else if(c.kind==='open'||c.kind==='resistor-open'||c.kind==='diode-open'){display='OL';unit='Ω';msg='Circuito interrompido: resistência fora da faixa. Compare com um componente saudável.'}
+   else if(c.kind==='diode-short'){display='0.0';unit='Ω';msg='Resistência muito baixa nos dois sentidos: possível diodo em curto.'}
+   else{display='OL';msg='Diodo não é resistor ideal. Use a função de teste de diodo.'}
+ }
+ else if(m===4){
+   if(c.kind==='diode-short'){display='0.010';unit='V';msg='Queda próxima de zero nos dois sentidos: diodo em curto-circuito (simulação).'}
+   else if(c.kind==='diode-open'){display='OL';msg='OL nos dois sentidos: diodo interrompido (simulação).'}
+   else if(c.kind==='diode'){
+      if(state.terminals.A==='black'&&state.terminals.B==='red'){display='0.650';unit='V';msg='Diodo polarizado diretamente: queda de tensão de aproximadamente 0,65 V.'}
+      else{display='OL';msg='Diodo polarizado reversamente: sem condução na simulação.'}
+   }else{display='OL';msg='Selecione o circuito de diodo para testar sua polarização.'}
+ }
+ else if(m===5){
+   if(c.kind==='continuity'){display='0.4';unit='Ω';msg='♪ BIP! Continuidade confirmada (resistência abaixo de 50 Ω).'}
+   else if(c.kind==='open'||c.kind==='resistor-open'||c.kind==='diode-open'){display='OL';msg='Sem BIP: componente interrompido.'}
+   else if(c.kind==='diode-short'){display='0.0';unit='Ω';msg='♪ BIP! Baixa resistência: possível curto-circuito no diodo.'}
+   else if(c.kind==='ohm'){display='OL';msg='Resistência de '+c.value.toLocaleString('pt-BR')+' Ω: acima do limiar de BIP (50 Ω) desta simulação.'}
+   else{display='OL';msg='Escolha um cabo desenergizado para testar continuidade.'}
+ }
+ syncBeep(m===5 && (c.kind==='continuity'||c.kind==='diode-short') && !!hasBoth && validPorts);
+ $('digits').textContent=display;$('unit').textContent=unit;message(msg,warn);drawCables()
+}
+render();
+</script><script id="drag-v22">
+let dragging=null, origin=null;
+const ghost=document.getElementById('dragGhost');
+function applyLead(lead,target){if(!target)return;const terminal=target.closest('[data-terminal]');const socket=target.closest('[data-port]');if(terminal){const t=terminal.dataset.terminal;for(const k of ['A','B'])if(state.terminals[k]===lead)state.terminals[k]=null;state.terminals[t]=lead;state.selected=lead;render()}else if(socket){connectPort(lead,socket.dataset.port)}}
+for(const el of document.querySelectorAll('.lead')){
+ el.addEventListener('pointerdown',e=>{if(e.button!==0)return;dragging={lead:el.dataset.lead,startX:e.clientX,startY:e.clientY,moved:false,id:e.pointerId};origin=el;el.setPointerCapture(e.pointerId)});
+ el.addEventListener('pointermove',e=>{if(!dragging||dragging.id!==e.pointerId)return;if(Math.hypot(e.clientX-dragging.startX,e.clientY-dragging.startY)>8)dragging.moved=true;if(dragging.moved){ghost.style.display='block';ghost.textContent=dragging.lead==='red'?'🔴 Ponta vermelha':'⚫ Ponta preta';ghost.style.borderColor=dragging.lead==='red'?'#e54b59':'#8288ad';ghost.style.left=e.clientX+'px';ghost.style.top=e.clientY+'px'}});
+ el.addEventListener('pointerup',e=>{if(!dragging)return;const moved=dragging.moved,lead=dragging.lead;ghost.style.display='none';dragging=null;if(moved){const target=document.elementFromPoint(e.clientX,e.clientY);applyLead(lead,target);drawCables()}else{state.selected=lead;render()}});
+ el.addEventListener('pointercancel',()=>{dragging=null;ghost.style.display='none'});
+}
+function drawCables(){const svg=document.getElementById('cableLayer');if(!svg)return;svg.innerHTML='';const svgNS='http://www.w3.org/2000/svg';for(const lead of ['black','red']){const t=Object.keys(state.terminals).find(k=>state.terminals[k]===lead);if(!t)continue;const from=document.querySelector('.socket[data-port="'+state.ports[lead]+'"]');const to=document.querySelector('.terminal[data-terminal="'+t+'"] .contact');if(!from||!to)continue;const a=from.getBoundingClientRect(),b=to.getBoundingClientRect();const x1=a.left+a.width/2,y1=a.top+a.height/2,x2=b.left+b.width/2,y2=b.top+b.height/2;const path=document.createElementNS(svgNS,'path');const bend=Math.max(55,Math.abs(x2-x1)*.3);path.setAttribute('d',`M ${x1} ${y1} C ${x1+bend} ${y1+90}, ${x2-bend} ${y2+65}, ${x2} ${y2}`);path.setAttribute('stroke',lead==='red'?'#ef435b':'#050608');path.setAttribute('stroke-width','6');path.setAttribute('stroke-linecap','round');path.setAttribute('fill','none');path.setAttribute('style','filter:drop-shadow(0 1px 2px #ffffff66)');svg.appendChild(path)}}
+window.addEventListener('resize',drawCables);window.addEventListener('scroll',drawCables,true);document.getElementById('blackStatus').textContent='Borne COM';document.getElementById('redStatus').textContent='Borne VΩ';drawCables();
+</script></body></html>
