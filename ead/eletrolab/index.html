@@ -1,1 +1,888 @@
-<!-- Manutec EletroLab -->
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Manutec EletroLab 3.24 — Manutec EAD</title><style>
+:root{font-family:Arial,sans-serif;color:#e9eef1;background:#101416}*{box-sizing:border-box}body{margin:0}header{background:#091015;border-bottom:3px solid #e9bb20;padding:14px 20px;display:flex;align-items:center;gap:13px;flex-wrap:wrap}.logo{width:48px;height:48px;border:3px dashed #e9bb20;border-radius:50%;display:grid;place-items:center;font-size:27px;color:#e9bb20}h1{font-size:22px;margin:0;color:white}header small{color:#e9bb20}main{display:grid;grid-template-columns:275px minmax(0,1fr);gap:15px;padding:15px}.side,.work{background:#20282c;border:1px solid #3b484e;border-radius:12px;padding:14px}.side h2,.work h2{font-size:16px;margin:10px 0}.side p,small{font-size:12px;line-height:1.5;color:#b7c4ca}button,select{font:inherit;color:#fff;background:#354249;border:1px solid #60737a;border-radius:7px;padding:11px;cursor:pointer}button:hover{filter:brightness(1.15)}button:focus-visible,select:focus-visible{outline:3px solid #e9bb20}.side button,.side select{width:100%;margin:4px 0;text-align:left}.selected{border-color:#e9bb20!important;box-shadow:0 0 0 2px #e9bb2044}.green{background:#087b4c;border-color:#2cd08c}.red{background:#882b33;border-color:#ec6b73}.toolbar{display:flex;gap:9px;justify-content:space-between;align-items:center;flex-wrap:wrap}.board-scroll{overflow:auto;background:#101619;padding:12px;border-radius:9px;margin-top:12px}.board{position:relative;width:890px;height:510px;background:#323e44;border:10px solid #52636b;border-radius:9px;box-shadow:inset 0 0 0 4px #1b2327}.duct{position:absolute;left:24px;width:820px;height:38px;background:repeating-linear-gradient(90deg,#1a252b 0 11px,#60747c 11px 14px,#1a252b 14px 23px);border:3px solid #1a252b}.topduct{top:20px}.midduct{top:243px}.bottomduct{top:445px}.rail{position:absolute;left:30px;top:84px;width:812px;height:16px;background:linear-gradient(#a5b5bc,#4d606a,#e0e5e7,#64747d)}.slots{position:absolute;left:34px;top:100px;display:flex;gap:6px}.slot{width:91px;height:139px;border:1px dashed #83949b;border-radius:5px;position:relative;cursor:pointer}.device{height:100%;border:2px solid #71818a;border-radius:5px;background:linear-gradient(90deg,#cbd4d9,#f9fcfd 40%,#c4cdd2);color:#1b252b;text-align:center;padding-top:9px;position:relative}.device strong{display:block;font-size:12px}.device .mark{font-size:10px;color:#263940;margin-top:5px}.toggle{width:31px;height:31px;background:#29363e;border:5px solid #647982;border-radius:5px;margin:8px auto}.device.dps .toggle{background:#d13b3e}.device.dr .toggle{background:#348a67}.terminal{position:absolute;width:25px;height:25px;border:3px solid #879aa4;border-radius:50%;background:#1d2b32;display:grid;place-items:center;color:#fff;font-size:9px;z-index:5;cursor:crosshair;touch-action:manipulation}.terminal:after{content:'';width:8px;height:3px;background:#d6dfe3;position:absolute;transform:rotate(90deg)}.terminal.top{top:-13px}.terminal.bottom{bottom:-13px}.terminal.left{left:14px}.terminal.right{right:14px}.terminal.active{outline:4px solid #e9bb20}.bars{position:absolute;top:317px;left:34px;right:34px;display:flex;gap:30px}.bar{position:relative;background:#d5e0e4;color:#15232a;height:86px;flex:1;border-radius:5px;border-bottom:9px solid #5bb9db;padding:13px;font-weight:bold;font-size:14px}.bar.pe{border-bottom-color:#48b36a}.bar .terminal{bottom:11px;left:20px}.bar .terminal.second{left:75px}svg#wires{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}svg#wires path{fill:none;stroke-width:10;stroke-linejoin:round;stroke-linecap:round;pointer-events:stroke;cursor:pointer}svg#wires path:hover{stroke-width:13}svg#wires .ferrule{stroke:#c8d6dc;stroke-width:12;stroke-linecap:round;pointer-events:none}.notice{padding:12px;background:#2c3a40;border-radius:7px;margin-top:10px;white-space:pre-wrap;line-height:1.5}.hint{color:#e9bb20}.legend{display:flex;gap:10px;flex-wrap:wrap}.legend span{font-size:12px;color:#c9d5da}.dot{display:inline-block;width:12px;height:12px;border-radius:50%;vertical-align:middle}.danger{color:#ff9494}.ok{color:#65dba0}@media(max-width:760px){main{grid-template-columns:1fr;padding:8px}.side,.work{padding:10px}.side .component-buttons{display:flex;overflow-x:auto;gap:6px}.side .component-buttons button{flex:0 0 135px}.board-scroll{padding:6px}header h1{font-size:18px}.toolbar button{width:100%}} 
+/* EletroLab 2.2 — acabamento industrial e acessibilidade */
+.logo{background:#103456;border:2px solid #e9bb20;border-radius:13px;width:55px;height:55px;box-shadow:0 2px 9px #0008}
+.device{background:linear-gradient(90deg,#aebdc6 0%,#f5f7f6 14%,#e3e8e8 48%,#b9c6cb 100%);box-shadow:inset 3px 0 4px #ffffff8c,inset -3px 0 5px #66767e77,0 2px 3px #0008}
+.device:before{content:'';position:absolute;top:3px;left:7px;right:7px;height:3px;background:#8c9ea6;border-radius:2px}
+.device .rating{font-size:8px;font-weight:bold;color:#384b56;margin-top:2px}
+.device .toggle{height:28px;width:30px;border:4px solid #70838b;box-shadow:inset 0 3px 4px #0006,0 2px 2px #fff8;margin:7px auto 3px}
+.device.dr .toggle{background:linear-gradient(#37a17d,#176448)}
+.device.dps .toggle{background:linear-gradient(#f25a56,#ad262b)}
+.terminal{width:28px;height:28px;background:radial-gradient(circle,#273840 35%,#0b1419 65%);border:3px solid #a8b9c0;box-shadow:0 1px 3px #000a}
+.terminal.top{top:-15px}.terminal.bottom{bottom:-15px}
+.terminal:focus-visible{outline:4px solid #f6c52b}
+.duct{z-index:1;opacity:.87}
+.duct:after{content:'CALHA ORGANIZADORA';position:absolute;top:11px;left:7px;background:#101a1fdc;color:#a7bbc3;font-size:9px;letter-spacing:1px;padding:2px 7px;pointer-events:none}
+.board.closed-ducts .duct{background:linear-gradient(#71828a,#384951 25%,#2b3940 80%,#667780);opacity:1}
+.board.closed-ducts .duct:after{content:'TAMPA FECHADA';color:#fff}
+svg#wires{z-index:2}
+.board.closed-ducts svg#wires{z-index:0}
+.slots,.bars{z-index:3}
+.rail{z-index:1}
+.bar{box-shadow:inset 0 2px 3px #fff9,0 2px 5px #0006}
+.bar:after{content:'●  ●  ●  ●';position:absolute;right:16px;bottom:14px;color:#51616a;letter-spacing:15px}
+@media(max-width:760px){.board-scroll{overscroll-behavior:contain}.terminal{min-width:28px;min-height:28px}.toolbar{position:sticky;top:0;background:#20282c;z-index:10;padding:5px 0}}
+
+/* Versão 2.3: quadro inteiro visível sem rolagem horizontal */
+html,body{max-width:100%;overflow-x:hidden}
+main{grid-template-columns:190px minmax(0,1fr);gap:10px;padding:10px;max-width:100vw}
+.side,.work{min-width:0;padding:10px}
+.side button,.side select{padding:8px 7px;font-size:12px}
+.side h2{font-size:14px;margin:8px 0}
+.side p{font-size:11px;line-height:1.35}
+.board-scroll{overflow:hidden;width:100%;padding:6px;min-width:0}
+.board{transform-origin:top left;flex-shrink:0}
+.toolbar{gap:6px}.toolbar h2{font-size:15px}
+@media(max-width:760px){
+ main{grid-template-columns:minmax(0,1fr);gap:8px;padding:7px}
+ .side{padding:8px}.side .component-buttons button{flex:0 0 112px}
+ .side p{margin:5px 0}.board-scroll{padding:3px}
+ .toolbar button{width:auto;font-size:12px;padding:8px}
+}
+
+/* Versão 2.4 — contraste dos cabos e identidade institucional */
+header{background:linear-gradient(105deg,#082a4d,#124a78);border-bottom:3px solid #f3c52b;padding:11px 16px;gap:12px}
+header h1{color:#fff;letter-spacing:.35px}header h1 span{color:#f3c52b!important}
+header small{color:#f3df8c;font-weight:600}
+.logo{background:#123d69;border:2px solid #f3c52b;box-shadow:0 2px 8px #0005}
+/* Superfície interna clara para contraste com condutores pretos */
+.board{background:#dce2e5;border-color:#87959c;box-shadow:inset 0 0 0 4px #b9c4c9}
+.board-scroll{background:#bfcbd0}
+.slot{border-color:#75868f}
+/* Calhas continuam escuras para visual industrial */
+.duct{border-color:#46555d}
+/* Barramentos e dispositivos preservam contraste */
+@media(max-width:760px){header{padding:9px 11px}.logo{width:46px;height:46px}header h1{font-size:17px}header small{font-size:10px}}
+
+/* EletroLab 2.8 — calhas laterais, identificação de alto contraste e dispositivos didáticos MANUTEC */
+.board{overflow:hidden}.duct:after{color:#fff!important;background:#172126!important;font-size:11px!important;font-weight:800!important;letter-spacing:.35px!important;text-shadow:0 1px 2px #000}
+.duct.side-duct{left:auto;width:27px;height:390px;top:57px;background:repeating-linear-gradient(0deg,#1b252a 0 12px,#708087 12px 15px,#1b252a 15px 24px);z-index:1}
+.duct.leftduct{left:4px}.duct.rightduct{right:4px}
+.duct.side-duct:after{content:'CALHA LATERAL';writing-mode:vertical-rl;transform:rotate(180deg);left:5px;top:90px;font-size:9px!important;padding:5px 2px}
+.board.closed-ducts .duct.side-duct{background:linear-gradient(90deg,#52626a,#26363c,#71818a)}
+.board.closed-ducts .duct.side-duct:after{content:'TAMPA FECHADA'}
+.device{padding-top:15px;border-radius:3px;border:1px solid #6f8088;background:linear-gradient(90deg,#a5b1b9 0%,#e8edee 9%,#f7f9f8 49%,#b8c5ca 95%,#81939d);box-shadow:inset 0 0 2px #fff,2px 2px 4px #3449}
+.device strong{font-size:10px;letter-spacing:.2px;color:#1b2d35}.device .mark{font-size:9px;font-weight:800;color:#17486b}.device .rating{font-size:8px}
+.device .toggle{width:28px;height:34px;margin:7px auto 3px;border:6px solid #53636a;border-radius:3px;background:linear-gradient(#273238,#0c1418);box-shadow:0 2px 2px #0007,inset 0 2px 2px #fff5}
+.device.dr .toggle{background:linear-gradient(#273238,#0c1418)}.device.dps .toggle{background:linear-gradient(#a52d32,#e94346)}
+.device .test{position:absolute;top:67px;right:5px;background:#e7c64d;border:1px solid #6c6639;border-radius:50%;height:12px;width:12px;font-size:7px;line-height:10px}
+.device .indicator{position:absolute;top:64px;right:6px;background:#3ca866;border:2px solid #e6e9e7;width:12px;height:12px;border-radius:2px}
+.device .brandmark{font-size:9px;font-weight:900;color:#144b75;border-bottom:1px solid #aab6bc;padding:3px 0;margin:1px 7px 0}
+.device .terminal{border-radius:6px;background:radial-gradient(circle,#20292c 30%,#718087 35%,#121b20 63%);box-shadow:0 0 0 2px #e2e6e7,0 2px 4px #0007}
+.device .terminal:after{height:3px;width:10px;background:#cbd2d6;transform:rotate(-35deg)}
+svg#wires path{stroke-width:12;filter:drop-shadow(1px 2px 1px #0006)}
+svg#wires .ferrule{stroke-width:13;stroke:#aab7be}
+.board-scroll{background:#d1d8db}
+@media(max-width:760px){.duct.side-duct:after{font-size:8px!important}}
+
+/* ELETROLAB 2.7 — revisão visual evidente, sem bibliotecas externas */
+header{background:linear-gradient(100deg,#062747,#11517d)!important;min-height:78px}
+header h1{font-size:22px}.logo{background:#08294c!important}
+.board{background:linear-gradient(145deg,#e9eef0,#d6e0e4)!important;border:9px solid #83949c!important;box-shadow:inset 0 0 0 5px #b9c8ce,0 6px 20px #0003!important}
+.board-scroll{background:#cbd7dd!important}
+.duct{border:2px solid #4c5b63!important;background:repeating-linear-gradient(90deg,#27343a 0 12px,#778991 12px 15px,#27343a 15px 24px)!important;box-shadow:inset 0 3px 6px #0006,0 2px 3px #0004!important}
+.duct:after{content:'CALHA ORGANIZADORA'!important;color:#fff!important;background:#111b21!important;font-weight:900!important;font-size:12px!important;text-shadow:0 1px 2px #000!important;letter-spacing:.3px!important;padding:3px 7px!important;border-radius:3px}
+.duct.side-duct{background:repeating-linear-gradient(0deg,#27343a 0 12px,#778991 12px 15px,#27343a 15px 24px)!important}
+.duct.side-duct:after{content:'CALHA LATERAL'!important;font-size:10px!important;writing-mode:vertical-rl;transform:rotate(180deg);left:4px;top:100px;padding:5px 2px!important}
+.board.closed-ducts .duct{background:linear-gradient(180deg,#788b95,#36474f,#657983)!important}
+.board.closed-ducts .duct:after{content:'TAMPA FECHADA'!important}
+.board.closed-ducts .duct.side-duct:after{content:'TAMPA FECHADA'!important}
+.rail{background:linear-gradient(#e6edef 0%,#81949d 23%,#c2ced4 45%,#627680 64%,#e1e9ec 100%)!important;border:1px solid #6b808b;box-shadow:0 2px 4px #0006}
+.slot{border:1px dashed #72848c!important}
+.device{border:2px solid #8b9aa2!important;border-radius:4px!important;padding-top:11px!important;background:linear-gradient(90deg,#aebcc4 0%,#eef2f2 11%,#fff 40%,#e2e9eb 77%,#aab9c1 100%)!important;box-shadow:inset 3px 0 3px #fff9,inset -4px 0 4px #68798255,0 3px 5px #0005!important}
+.device:before{content:''!important;position:absolute;left:5px;right:5px;top:5px;height:4px;background:linear-gradient(#8799a2,#dbe3e7);border-radius:2px}
+.device strong{font-size:10px!important;color:#1b303a!important;letter-spacing:.1px}
+.device .brandmark{font-size:10px!important;color:#0b4770!important;font-weight:900!important;border-bottom:1px solid #9cabb2!important;margin:3px 6px 0!important;padding-bottom:3px!important}
+.device .rating{font-size:8px!important;color:#263f4b!important;font-weight:900!important;margin-top:4px!important}
+.device .mark{font-size:8px!important;color:#4c606b!important;margin-top:3px!important}
+.device .toggle{height:31px!important;width:27px!important;margin:5px auto 2px!important;border:5px solid #788c96!important;background:linear-gradient(90deg,#1a272e,#45535c 50%,#101b21)!important;box-shadow:inset 0 3px 3px #0007,0 2px 2px #fff8!important}
+.device.dr .toggle{background:linear-gradient(90deg,#1a272e,#46565d,#17252a)!important}
+.device.dps .toggle{background:linear-gradient(#e94848,#a7222b)!important}
+.device .test{background:#e9cb42!important;top:78px!important}
+.device .indicator{background:#25a86b!important;top:78px!important}
+.terminal{border:3px solid #7e929d!important;background:radial-gradient(circle,#1b252a 0 38%,#647780 41% 54%,#1b252a 58%)!important;box-shadow:0 1px 4px #0008!important}
+.terminal:after{background:#cbd6da!important;height:3px!important;width:12px!important;transform:rotate(45deg)!important}
+.bar{background:linear-gradient(#f7fafb,#d9e2e6)!important;border:1px solid #9daeb6!important}
+svg#wires path{stroke-width:12!important;filter:drop-shadow(1px 1px 1px #0007)}
+svg#wires .ferrule{stroke:#d1dbe0!important;stroke-width:13!important}
+.side{background:#20282c!important}.work{background:#20282c!important}
+.version-tag{background:#0f6b49;color:#fff;font-size:11px;font-weight:bold;padding:5px 8px;border-radius:6px;margin-left:auto}
+@media(max-width:760px){header h1{font-size:17px}.version-tag{font-size:9px}main{grid-template-columns:1fr!important}.side .component-buttons{display:flex!important;overflow-x:auto!important}}
+
+/* Versão 2.8 — barramentos de latão com 12 vias individuais */
+.bars{left:65px;right:65px;top:319px;gap:100px;justify-content:space-between;z-index:4}
+.bar,.bar.pe{flex:none;width:310px;height:73px;border:0;background:transparent;box-shadow:none;padding:0;color:#24343b;position:relative}
+.bar:after{display:none!important}
+.bar-label{font-size:12px;font-weight:900;margin-bottom:5px;white-space:nowrap;color:#18272e}
+.brass{height:30px;position:relative;border:2px solid #8e641c;border-radius:3px;background:linear-gradient(#b98528,#f4d676 30%,#d4a545 65%,#a06a1e);box-shadow:0 3px 5px #0005,inset 0 2px 2px #fff8;display:flex;align-items:center;justify-content:space-around;padding:0 4px}
+.bar.neutral:before,.bar.pe:before{content:'';position:absolute;left:-9px;top:22px;width:12px;height:39px;border-radius:4px;background:#087bd6;border:2px solid #0560a8;box-shadow:0 2px 3px #0005}
+.bar.pe:before{background:#20a34c;border-color:#087b35}
+.bar.neutral:after,.bar.pe:after{content:''!important;display:block!important;position:absolute;right:-9px;top:22px;width:12px;height:39px;border-radius:4px;background:#087bd6;border:2px solid #0560a8;box-shadow:0 2px 3px #0005}
+.bar.pe:after{background:#20a34c;border-color:#087b35}
+.bar-foot{font-size:8px;letter-spacing:.4px;text-align:center;color:#334b57;margin-top:4px}
+.bus-terminal,.bar .terminal,.bar .terminal.second{position:relative!important;left:auto!important;bottom:auto!important;top:auto!important;width:19px;height:19px;min-width:19px;min-height:19px;border:2px solid #765018;border-radius:50%;background:radial-gradient(circle,#f5d889 0 28%,#aa7725 75%);box-shadow:inset 0 1px 2px #684617,0 1px 1px #fff8;z-index:7;cursor:crosshair}
+.bus-terminal:after{display:none}.bus-terminal .screw{width:12px;height:3px;background:#645b4b;border-top:1px solid #f5f1d8;transform:rotate(-25deg);border-radius:2px}
+.bus-terminal.active{outline:3px solid #eeb52a}
+.device .toggle{box-shadow:inset 0 3px 4px #0008,0 2px 2px #fff9}
+.device .brandmark{font-weight:900;letter-spacing:.1px}
+
+/* v2.9: espaço livre para descida dos cabos e calha inferior reposicionada */
+.board{height:550px!important}.bottomduct{top:491px!important}.side-duct{height:473px!important}
+.bars{top:345px!important}.midduct{top:265px!important}
+svg#wires{height:100%!important;z-index:9!important}
+svg#wires .duct-cover{pointer-events:none;filter:drop-shadow(0 1px 2px #1117)}
+svg#wires text{pointer-events:none;font-family:Arial,sans-serif}
+svg#wires path.wire-line{stroke-width:8!important;stroke-linejoin:round;stroke-linecap:round;pointer-events:stroke;cursor:pointer}
+svg#wires path.wire-hit{stroke:transparent!important;stroke-width:22!important;pointer-events:stroke;cursor:pointer;filter:none!important}
+svg#wires .ferrule{stroke-width:7!important;stroke:#b7c5cb!important}
+
+
+/* 3.38: borne com cabo inserido e parafuso de aperto visivelmente fechado. */
+.bus-terminal.cable-inserted{background:radial-gradient(circle at 50% 58%,#28383d 0 40%,#4b5960 43% 57%,#bd8b36 62% 100%)!important}
+.bus-terminal.cable-inserted .screw{background:linear-gradient(#f5f8f9,#697980);border-color:#4e6068;box-shadow:0 1px 2px #000b,0 0 0 1px #d5dfe2;transform:translateY(2px)}
+.bus-terminal.cable-inserted .screw:after{transform:rotate(70deg);background:#263b43}
+.bus-terminal.cable-inserted:before{content:'';position:absolute;inset:4px;border-radius:50%;background:var(--insert-color,#a9bdc6);box-shadow:inset 0 0 0 2px #1c292d;z-index:1;pointer-events:none}
+
+/* 3.1: o parafuso fica ACIMA da abertura frontal, que recebe o cabo. */
+.bus-terminal,.bar .terminal.bus-terminal{
+ background:radial-gradient(circle at 50% 55%,#101b20 0 39%,#4b5960 42% 57%,#bd8b36 62% 100%)!important;
+ border:2px solid #b58b42!important;overflow:visible!important;
+ box-shadow:inset 0 1px 3px #050a0b,0 1px 1px #fff9!important;
+}
+.bus-terminal .screw{position:absolute;top:-12px;left:1px;width:13px;height:7px;
+ border:1px solid #7e878a;border-radius:50%;background:linear-gradient(#e4e9ea,#85949a);
+ transform:none;box-shadow:0 1px 2px #0008}
+.bus-terminal .screw:after{content:'';position:absolute;width:9px;height:2px;top:2px;left:1px;background:#3d4b51;transform:rotate(-28deg)}
+
+#polecount,#change-poles{width:100%;margin:5px 0}
+#external-terminals .ext-block.input{min-width:320px;padding:10px 15px;border:2px solid #4abf8b}
+#external-terminals .ext-block.input .ext-title{font-size:14px;font-weight:800}
+.device.dps{background:linear-gradient(90deg,#a21f27,#f45a60 45%,#b52d33)!important;color:white!important}
+.device.dps strong,.device.dps .rating,.device.dps .mark{color:white!important}
+.board-scroll{padding-top:70px!important;overflow:visible!important}.board{overflow:visible!important}.ext-block.input .ext-pin{width:29px!important;height:29px!important;min-width:29px!important;font-size:10px!important}.ext-block.input .ext-row{gap:9px!important}.ext-block.input .ext-pin[data-kind="L1"]{border-color:#e53935}.ext-block.input .ext-pin[data-kind="L2"]{border-color:#141414}.ext-block.input .ext-pin[data-kind="N"]{border-color:#70c9ec}.ext-block.input .ext-pin[data-kind="PE"]{border-color:#24ba59}.feed-wire-palette{position:absolute;left:355px;top:-69px;z-index:35;background:#14272d;border:2px solid #16a273;border-radius:7px;padding:7px 10px;min-width:185px;box-shadow:0 2px 8px #0008}.feed-wire-palette label{display:block;color:#f0c438;font-weight:700;font-size:10px;margin-bottom:3px}.feed-wire-palette select{font-size:12px;padding:6px;width:100%;margin:0}@media(max-width:760px){.feed-wire-palette{left:345px;top:-68px}}
+</style><style>
+#circuit-settings label{display:block;margin:9px 0;font-weight:600}#circuit-settings select{width:100%;margin-top:4px;padding:8px;background:#34444c;color:white;border:1px solid #748a95;border-radius:6px}.feed-note{padding:9px;border-left:3px solid #f5c542;background:#30434c;font-size:12px;margin-bottom:10px}.external-terminals{position:absolute;inset:0;pointer-events:none;z-index:13}.ext-block{position:absolute;display:flex;gap:3px;align-items:center;background:#15262e;border:1px solid #78919c;border-radius:5px;padding:4px;pointer-events:auto;box-shadow:0 2px 6px #0009}.ext-block.input{left:5%;top:-58px;z-index:25;gap:12px}.ext-block.output{right:1%;bottom:1%;flex-direction:column;align-items:flex-end}.ext-title{font-size:10px;color:#ffdb65;font-weight:800}.ext-row{display:flex;align-items:center;gap:4px}.ext-pin{position:relative!important;left:auto!important;top:auto!important;right:auto!important;bottom:auto!important;transform:none!important;display:inline-flex!important;align-items:center;justify-content:center;width:23px!important;height:23px!important;min-width:23px;border-radius:50%;border:2px solid #e1e5e7;background:#172a31;color:#fff;font-size:9px;font-weight:800;cursor:crosshair;pointer-events:auto}.ext-pin[data-kind="L1"]{border-color:#e53935}.ext-pin[data-kind="L2"]{border-color:#aaa}.ext-pin[data-kind="N"]{border-color:#6ccdf5}.ext-pin[data-kind="PE"]{border-color:#43d079}.ext-pin.active{outline:3px solid #ffdd33}.out-caption{font-size:9px;color:#e6eff4;min-width:85px}.ext-block.output .ext-row{margin-top:2px}@media(max-width:700px){.ext-block{padding:2px;gap:1px}.ext-pin{width:19px!important;height:19px!important;min-width:19px;font-size:8px}.out-caption{min-width:67px;font-size:8px}}
+</style><style>
+/* EletroLab 3.7: bornes de alimentação em bloco elevado e com abertura frontal. */
+.ext-block.input{top:-83px!important;left:4%!important;display:flex;align-items:center;gap:15px!important;padding:10px 16px!important;min-width:0!important;border-radius:9px!important;background:#10242b!important;}
+.ext-block.input .ext-row{gap:14px!important}
+.feed-socket{display:inline-flex;flex-direction:column;align-items:center;gap:4px;min-width:33px}
+.feed-label{font-size:12px;font-weight:800;color:#eaf4f6}
+.ext-block.input .ext-pin{width:31px!important;height:31px!important;border-radius:6px!important;display:flex!important;align-items:center;justify-content:center;background:#778b96!important;box-shadow:inset 0 0 0 3px #aebdc3,0 2px 3px #0008!important}
+.ext-block.input .ext-pin:after{display:none!important}
+.feed-hole{display:block;width:16px;height:17px;border-radius:4px;background:#111c22;border:2px solid #26343c;box-shadow:inset 0 2px 4px #000}
+.ext-block.input .ext-pin[data-kind="L1"]{border-color:#e53935!important}.ext-block.input .ext-pin[data-kind="L2"]{border-color:#17191a!important}.ext-block.input .ext-pin[data-kind="N"]{border-color:#70c9ec!important}.ext-block.input .ext-pin[data-kind="PE"]{border-color:#24ba59!important}
+.board-scroll{padding-top:99px!important}
+@media(max-width:760px){.ext-block.input{top:-82px!important;left:2%!important;padding:8px!important;gap:7px!important}.ext-block.input .ext-row{gap:6px!important}.ext-block.input .ext-title{font-size:11px!important}}
+</style><style>
+/* Versão 3.11: entrada e seleção de cabos em áreas independentes, sem sobreposição. */
+#external-terminals .feed-wire-palette{
+ left:auto!important;right:1.5%!important;top:-83px!important;
+ width:190px!important;min-width:0!important;box-sizing:border-box;
+ z-index:26;max-width:30%;
+}
+#external-terminals .ext-block.input{left:2%!important;max-width:calc(98% - 210px);box-sizing:border-box}
+#external-terminals .feed-wire-palette select{width:100%;box-sizing:border-box}
+@media(max-width:760px){
+ .board-scroll{padding-top:160px!important}
+ #external-terminals .ext-block.input{top:-151px!important;left:2%!important;max-width:96%;width:max-content}
+ #external-terminals .feed-wire-palette{top:-78px!important;left:2%!important;right:auto!important;max-width:96%;width:210px!important}
+}
+</style><style>
+/* Correção 3.14: a camada dos bornes tem pointer-events:none; reativar eventos no menu e filhos. */
+#external-terminals .feed-wire-palette,
+#external-terminals .feed-wire-palette button,
+#external-terminals .feed-wire-palette .cable-options {pointer-events:auto!important;}
+/* EletroLab 3.13: menu de cores aberto ao clicar, sempre legível. */
+#external-terminals .feed-wire-palette{overflow:visible!important;min-width:190px!important}
+#external-terminals .cable-title{display:block;color:#f0c438;font-size:11px;font-weight:800;margin-bottom:5px}
+#external-terminals .cable-toggle{display:flex;justify-content:space-between;align-items:center;gap:8px;width:100%;background:#233b45;color:#fff;border:1px solid #5bbf9c;border-radius:6px;padding:9px 7px;font-size:12px;font-weight:700;cursor:pointer}
+#external-terminals .cable-options{position:absolute;top:calc(100% - 5px);left:0;right:0;background:#14272d;border:2px solid #16a273;border-radius:7px;box-shadow:0 9px 18px #000a;padding:5px;z-index:1000}
+#external-terminals .cable-options[hidden]{display:none!important}
+#external-terminals .cable-options button{display:flex;align-items:center;gap:9px;width:100%;padding:10px 8px;text-align:left;background:#263a44;color:#fff;border:0;border-radius:5px;cursor:pointer;font-size:12px;margin:2px 0}
+#external-terminals .cable-options button:hover,#external-terminals .cable-options button:focus-visible{background:#365966;outline:1px solid #f0c438}
+#external-terminals .cable-dot{width:16px;height:16px;border-radius:50%;border:1px solid #eee;flex-shrink:0}
+</style><style>
+/* EletroLab 3.17: pontos de utilização didáticos, sem cobrir os barramentos. */
+#external-terminals .ext-block.output{display:flex!important;right:2%!important;bottom:43px!important;top:auto!important;flex-direction:column!important;align-items:stretch!important;gap:5px!important;padding:7px!important;z-index:24!important;background:#17282f!important;border:2px solid #d8b43c!important;width:232px!important}
+#external-terminals .ext-block.output .ext-title{font-size:10px!important;text-align:center}
+#external-terminals .ext-block.output .ext-row{display:flex!important;gap:7px!important;margin:0!important;align-items:center!important}
+#external-terminals .ext-block.output .out-caption{min-width:76px!important;width:76px!important;font-size:9px!important}
+#external-terminals .ext-block.output .ext-pin{width:19px!important;height:19px!important;min-width:19px!important}
+#external-terminals .ext-block.output .out-device{display:flex;align-items:center;justify-content:center;gap:6px;padding:5px 6px;border-radius:6px;background:#e8e8e5;border:2px solid #929da1;min-width:115px;position:relative}
+#external-terminals .ext-block.output .out-device.lamp{background:#e8eceb;border-radius:16px}
+#external-terminals .ext-block.output .out-device.socket{border-radius:9px}
+#external-terminals .ext-block.output .out-device.shower{background:#dce6e9}
+#external-terminals .ext-block.output .out-device .feed-socket{display:flex;flex-direction:column;align-items:center;gap:2px}
+#external-terminals .ext-block.output .out-device .feed-label{color:#182e39;font-size:9px;font-weight:900}
+#external-terminals .ext-block.output .out-device .ext-pin{background:#192c32}
+#external-terminals .ext-block.output .out-device .earth-center{order:2}
+#external-terminals .ext-block.output .out-device .left-active{order:1}
+#external-terminals .ext-block.output .out-device .right-active{order:3}
+#external-terminals .ext-block.output .out-device .lamp-symbol{font-size:15px;color:#17282f;margin-right:1px}
+@media(max-width:700px){#external-terminals .ext-block.output{width:216px!important;right:1%!important}.out-caption{min-width:69px!important}}
+
+/* 3.18: saídas abaixo do QDC, sem encobrir barramentos. */
+#external-terminals .ext-block.output{top:calc(100% + 12px)!important;bottom:auto!important;right:2%!important;width:340px!important;padding:10px!important;gap:7px!important}
+#external-terminals .ext-block.output .ext-row{justify-content:space-between!important}
+#external-terminals .ext-block.output .out-caption{width:112px!important;min-width:112px!important}
+#external-terminals .ext-block.output .out-device{min-width:160px!important}
+.board-scroll{padding-bottom:205px!important}
+#circuit-settings{display:block!important;margin:10px 0;padding:8px;border:1px solid #52636b;border-radius:8px}
+#circuit-settings label{font-size:12px}
+@media(max-width:700px){#external-terminals .ext-block.output{right:1%!important;width:330px!important}}
+
+/* 3.19: componentes reconhecíveis e bornes separados para conexões didáticas. */
+#external-terminals .ext-block.output{width:410px!important;gap:10px!important;padding:12px!important;box-sizing:border-box}
+#external-terminals .ext-block.output .ext-row{gap:12px!important;align-items:center!important}
+#external-terminals .ext-block.output .out-caption{width:104px!important;min-width:104px!important;font-size:10px!important;line-height:1.35}
+#external-terminals .ext-block.output .out-device{width:264px!important;min-width:264px!important;min-height:100px;box-sizing:border-box;display:flex!important;flex-wrap:wrap;gap:8px!important;justify-content:center!important;align-items:center!important;padding:10px!important;position:relative}
+#external-terminals .ext-block.output .out-device .feed-socket{position:relative;z-index:2;min-width:34px;gap:3px}
+#external-terminals .ext-block.output .out-device .feed-label{font-size:10px!important}
+#external-terminals .ext-block.output .out-device .ext-pin{width:24px!important;height:24px!important;min-width:24px!important}
+#external-terminals .ext-block.output .out-device.lamp{background:linear-gradient(#f7f9f8,#cbd4d6);border-radius:12px}
+#external-terminals .ext-block.output .out-device.socket{background:linear-gradient(145deg,#e8edf0,#bdc9cf);border-radius:12px}
+#external-terminals .ext-block.output .out-device.shower{background:linear-gradient(#e2edf1,#b5c6cc)}
+.lamp-holder{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;width:68px;height:83px;flex-shrink:0;position:relative}
+.lamp-holder .bulb{position:absolute;top:0;left:19px;width:30px;height:38px;border-radius:50% 50% 38% 38%;background:radial-gradient(circle at 35% 25%,#fff,#d9e3e8 70%);border:2px solid #aab6bc;box-shadow:inset -3px -4px 4px #b7c4c9}
+.lamp-holder .holder-rim{position:absolute;top:33px;width:55px;height:16px;border:3px solid #7c858a;border-radius:50%;background:repeating-radial-gradient(ellipse at center,#d4d8da 0 3px,#889397 4px 5px)}
+.lamp-holder .holder-body{width:48px;height:38px;border-radius:4px 4px 9px 9px;background:linear-gradient(90deg,#a8b4b8,#fff 35%,#dce2e3 65%,#8b969b);border:2px solid #89979d;margin-bottom:0}
+.outlet-face{width:72px;height:80px;border-radius:12px;background:linear-gradient(135deg,#fff,#d9e1e5);border:3px solid #a8b2b8;box-shadow:2px 3px 3px #87969a66,inset 0 0 0 4px #f4f7f8;position:relative;flex-shrink:0}
+.outlet-face span{position:absolute;display:block;background:#28333a;border:2px solid #8a979e;box-sizing:border-box;width:11px;height:15px;border-radius:50%}
+.outlet-face .outlet-earth{top:16px;left:28px}
+.outlet-face .outlet-live.left{top:42px;left:15px;transform:rotate(-20deg)}
+.outlet-face .outlet-live.right{top:42px;right:15px;transform:rotate(20deg)}
+.shower-icon{font-size:39px;line-height:1;filter:drop-shadow(1px 2px 2px #4568);flex-shrink:0}
+#external-terminals .ext-block.output .out-device .earth-center{order:2}
+.board-scroll{padding-bottom:390px!important}
+@media(max-width:700px){#external-terminals .ext-block.output{right:0!important;width:400px!important}#external-terminals .ext-block.output .out-device{min-width:250px!important;width:250px!important}.board-scroll{padding-bottom:390px!important}}
+
+/* 3.21 — pontos de utilização em uma bancada visível, abaixo do QDC. */
+#external-terminals .ext-block.output{
+ left:0!important;right:auto!important;top:calc(100% + 15px)!important;bottom:auto!important;
+ width:100%!important;max-width:100%!important;display:grid!important;
+ grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:9px!important;
+ padding:29px 9px 10px!important;box-sizing:border-box!important;
+ background:#17282f!important;align-items:stretch!important;
+}
+#external-terminals .ext-block.output>.ext-title{
+ position:absolute;top:8px;left:0;right:0;text-align:center!important;font-size:12px!important;
+}
+#external-terminals .ext-block.output .ext-row{
+ display:flex!important;flex-direction:column!important;align-items:stretch!important;
+ justify-content:flex-start!important;gap:5px!important;margin:0!important;
+ min-width:0!important;
+}
+#external-terminals .ext-block.output .out-caption{
+ display:block!important;width:auto!important;min-width:0!important;
+ text-align:center!important;font-size:11px!important;font-weight:800;color:#f4f7f8!important;
+}
+#external-terminals .ext-block.output .out-device{
+ width:100%!important;min-width:0!important;min-height:116px!important;
+ display:flex!important;flex-wrap:nowrap!important;gap:6px!important;
+ justify-content:center!important;align-items:center!important;padding:8px 5px!important;
+}
+#external-terminals .ext-block.output .out-device .feed-socket{
+ min-width:32px!important;gap:6px!important;z-index:15!important;
+}
+#external-terminals .ext-block.output .out-device .feed-label{
+ font-size:12px!important;font-weight:900!important;color:#172a33!important;
+}
+#external-terminals .ext-block.output .out-device .ext-pin{
+ width:29px!important;height:29px!important;min-width:29px!important;min-height:29px!important;
+ border-radius:6px!important;border-width:3px!important;box-shadow:0 0 0 2px #fff,0 2px 4px #0008!important;
+}
+#external-terminals .ext-block.output .out-device .ext-pin:hover,
+#external-terminals .ext-block.output .out-device .ext-pin:focus-visible{
+ outline:4px solid #f0c438!important;outline-offset:2px!important;
+}
+#external-terminals .ext-block.output .out-device .ext-pin.active{
+ outline:4px solid #f0c438!important;outline-offset:2px!important;
+}
+#external-terminals .ext-block.output .out-device .feed-hole{width:16px;height:16px}
+#external-terminals .ext-block.output .out-device .lamp-holder{width:53px;transform:scale(.8);transform-origin:center}
+#external-terminals .ext-block.output .out-device .outlet-face{width:57px;height:69px;transform:scale(.86);transform-origin:center}
+#external-terminals .ext-block.output .out-device .shower-icon{font-size:31px}
+.board-scroll{padding-bottom:215px!important}
+@media(max-width:760px){
+ #external-terminals .ext-block.output{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:5px!important;padding:26px 5px 8px!important}
+ #external-terminals .ext-block.output .out-device{padding:5px 2px!important;gap:3px!important}
+ #external-terminals .ext-block.output .out-device .lamp-holder{width:42px;transform:scale(.65)}
+ #external-terminals .ext-block.output .out-device .outlet-face{width:45px;transform:scale(.7)}
+ #external-terminals .ext-block.output .out-device .feed-socket{min-width:27px!important}
+}
+/* 3.24: interruptor e lâmpada demonstrativos */
+#external-terminals .ext-block.output{width:860px!important;max-width:none!important;left:0!important;right:auto!important;display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:8px!important}
+#external-terminals .ext-block.output>.ext-title{grid-column:1/-1}
+#external-terminals .ext-block.output .ext-row{display:flex!important;flex-direction:column!important;align-items:stretch!important}
+#external-terminals .ext-block.output .out-caption{width:auto!important;text-align:center!important}
+#external-terminals .ext-block.output .out-device{width:100%!important;min-width:0!important;min-height:105px!important;padding:6px!important;gap:5px!important}
+#light-switch{font-size:11px;background:#384c55;padding:7px 4px;border:2px solid #f0c438;min-width:68px}
+#light-switch.on{background:#087b4c}
+.lamp-holder.lit .bulb{background:radial-gradient(circle,#fff 0%,#fff3a0 48%,#ffd43a 90%)!important;box-shadow:0 0 22px 10px #ffd33c99!important}
+.board-scroll{padding-bottom:235px!important}
+
+/* 3.24: identificações ampliadas, sem encobrir bornes */
+.device{padding-top:13px!important}
+.device .device-id{font-size:clamp(13px,1.15vw,16px)!important;font-weight:900!important;letter-spacing:.2px!important;line-height:1.12!important;color:#101d26!important;min-height:19px;white-space:nowrap}
+.device .device-poles{display:block;font-size:12px;font-weight:900;color:#17486b;margin-top:2px}
+.device .brandmark{font-size:9px!important;margin:2px 4px 0!important}
+.device .rating{font-size:8px!important}
+.light-wiring-hint{border-left:3px solid #e9bb20;padding:7px 9px;background:#28383f;color:#f4e9c3!important;font-size:12px!important}
+
+/* 3.24: orientação de segurança didática, acessível e responsiva */
+.safety-guidance{margin-top:12px;padding:13px 15px;background:#19272b;border:1px solid #b59b41;border-left:5px solid #f1c84b;border-radius:9px;color:#eaf0f0;font-size:13px;line-height:1.55}
+.safety-heading{font-size:15px;font-weight:900;letter-spacing:.25px;color:#ffe18a;margin-bottom:7px}
+.safety-guidance p{margin:7px 0}
+.safety-guidance strong{color:#fff2b9}
+.safety-guidance details{margin:10px 0;border:1px solid #56686b;border-radius:6px;padding:8px 10px;background:#243338}
+.safety-guidance summary{cursor:pointer;font-weight:800;color:#d5f2ef}
+.safety-guidance li{margin:5px 0}
+.safety-guidance ul{padding-left:20px}
+.safety-guidance .safety-limit{border-top:1px solid #607071;padding-top:10px;color:#f4d8b0}
+@media(max-width:760px){.safety-guidance{padding:11px;font-size:12px}.safety-heading{font-size:13px}}
+
+/* 3.25 — estados didáticos de energização, sem simular medição real */
+#external-terminals .ext-block.output .ext-row:not(.switch-row) .out-device{padding-top:20px!important}
+#external-terminals .virtual-status{position:absolute;top:3px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:9px;font-weight:900;letter-spacing:.2px;border-radius:10px;padding:2px 8px;background:#3b484d;color:#edf2f3;border:1px solid #67797f;z-index:5;pointer-events:none}
+#external-terminals .virtual-status.ready{background:#075d39;color:#dcffe9;border-color:#13b873}
+#external-terminals .virtual-status.off{background:#39484d;color:#e6edf0;border-color:#75878e}
+#external-terminals .virtual-status.lamp-on{background:#9d6b00;color:#fff6c4;border-color:#ffc83d}
+#external-terminals .ext-row:not(.switch-row) .out-device.virtual-ready{outline:2px solid #15ad68;outline-offset:-2px}
+#external-terminals .ext-row:not(.switch-row) .out-device.virtual-lamp-on{outline:2px solid #eebf2e;outline-offset:-2px}
+</style><style id="eletrolab326">
+/* v3.26: contorno do retorno branco para contraste em superfícies claras */
+svg#wires path.wire-return-outline{stroke:#36454e!important;stroke-width:14!important;fill:none!important;filter:none!important;pointer-events:none!important;stroke-linejoin:round;stroke-linecap:round}
+svg#wires path.wire-line[stroke="#ffffff"]{stroke:#ffffff!important;filter:drop-shadow(0 0 1px #25343d)!important}
+</style>
+<style>
+/* v3.32: bornes acessíveis mesmo com vários cabos conectados */
+#board .slots,#board .bars{z-index:12;position:relative}
+#board .slots{position:absolute}
+#board .bars{position:absolute}
+#board .terminal{z-index:35!important;cursor:pointer!important;touch-action:manipulation}
+#board .terminal.active{outline:4px solid #ffcf32!important;box-shadow:0 0 0 5px #14242a!important}
+#external-terminals .ext-pin{z-index:35!important;cursor:pointer!important}
+svg#wires path.wire-hit{stroke-width:13!important;cursor:pointer}
+</style><style>
+.terminal.cable-endpoint{outline:4px solid #ffcb35!important;outline-offset:3px!important;box-shadow:0 0 0 7px rgba(255,203,53,.24),0 0 16px #ffc107!important;z-index:30!important;}
+@media (pointer:coarse){.terminal{min-width:23px;min-height:23px;}#light-switch{min-height:38px;min-width:75px;}}
+</style>
+</head><body>
+<header><div class="logo"><svg viewBox="0 0 64 64" width="45" height="45" aria-label="Engrenagem Manutec"><path fill="#e8f0fa" d="M27 2h10l2 8 7 3 7-4 7 8-5 7 2 8 7 4-3 10-9-1-5 5 1 9-10 3-4-8-8-1-6 7-9-5 2-9-5-7-9-1-1-10 8-3 2-8-5-7 7-8 8 4 7-3z"/><circle cx="32" cy="32" r="20" fill="#12365c"/><path fill="#f6c52b" d="M35 10 19 35h12l-4 19 19-29H33z"/></svg></div><div><h1>MANUTEC <span style="color:#e9bb20">ELETROLAB 3.33</span></h1><small>MANUTEC EAD • Laboratório Virtual de Instalações Elétricas • Curso Eletricista Predial</small></div><span class="version-tag">VERSÃO 3.33 • ILUMINAÇÃO 127/220 V</span></header>
+<main><aside class="side"><h2>Configuração</h2><label for="voltage">Tensão didática</label><select id="voltage"><option value="220" selected>Rede 127/220 V — L1 + L2 + N + PE</option><option value="127">Rede 127 V — L1 + N + PE</option></select><h2>Entrada e saída</h2><p>Conecte a alimentação nos bornes de ENTRADA e distribua os circuitos pelos bornes de SAÍDA. Utilize os bornes da entrada e os condutores selecionados para as ligações internas.</p><div class="feed-note" id="feed-note">Esquema TT: 220 V entre L1 e L2 · N e PE separados</div><div id="circuit-settings"><h2>Tensão dos pontos de utilização</h2><p>Em rede 127/220 V, cada saída pode ser configurada para 127 V (L1+N) ou 220 V (L1+L2). Na rede 127 V, somente 127 V está disponível.</p><label>Iluminação<select class="outvoltage" data-circuit="luz"><option value="127">127 V</option><option value="220">220 V</option></select></label><label id="light-phase-label">Fase da iluminação 127 V<select id="light-phase"><option value="L1">L1</option><option value="L2">L2</option></select></label><p id="light-wiring-hint" class="light-wiring-hint">127 V: fase + neutro. Interruptor simples na fase.</p><label>Tomada 2P+T<select class="outvoltage" data-circuit="tug"><option value="127">127 V</option><option value="220" selected>220 V</option></select></label><label>Chuveiro<select class="outvoltage" data-circuit="chuveiro"><option value="127">127 V</option><option value="220" selected>220 V</option></select></label></div><h2>Componentes e polos</h2><label for="polecount">Configuração do dispositivo</label><select id="polecount"><option value="1">Monopolar (1P)</option><option value="2" selected>Bipolar (2P)</option><option value="3">Tripolar (3P) — verificar compatibilidade</option></select><p id="polehint">Rede disponível: L1 + L2 + N + PE, 220 V entre fases. Disjuntores tripolares exigem L3 para operação trifásica; DR/IDR/DDR bipolar 2P neste exercício utiliza L1 + N, mesmo quando a rede oferece 127/220 V. Para proteger L1 + L2 + N juntos, use dispositivo compatível com todos os condutores ativos (geralmente 4P na instalação real).</p><h2>Componentes</h2><div class="component-buttons" id="components"><button data-type="geral">Disjuntor geral</button><button data-type="dr">DR / IDR</button><button data-type="ddr">DDR</button><button data-type="dps">DPS</button><button data-type="circuito">Disjuntor circuito</button></div><p>Selecione um componente e clique em uma posição vazia do trilho DIN. A seleção permanece ativa: clique em outros espaços vazios para repetir o mesmo componente. Para trocar de tipo, selecione outro botão. Toque em um componente instalado para selecioná-lo.</p><button id="change-poles">Alterar polos do selecionado</button><button class="red" id="remove">Remover selecionado</button><button id="clear">Limpar painel</button><h2>Condutores virtuais</h2><label for="wire-kind">Cabo para ligações internas</label><select id="wire-kind" aria-label="Selecionar condutor"><option value="L1">🔴 Vermelho — L1</option><option value="L2">⚫ Preto — L2</option><option value="N">🔵 Azul-claro — N</option><option value="PE">🟢 Verde — PE</option><option value="R">⚪ Branco — retorno</option></select><p>Na ENTRADA DA REDE, a cor é automática. Nos demais bornes, escolha o condutor no seletor junto à entrada da rede. Os terminais são aplicados automaticamente.</p><p>Toque no borne de origem e depois no borne de destino. Os terminais são aplicados automaticamente nas extremidades dos cabos. Os condutores percorrem as calhas superiores, intermediárias, inferiores e laterais. Ao fechar as tampas, os trechos internos ficam ocultos. Clique no trecho livre de um cabo para removê-lo. Abra ou feche as tampas das calhas pelo botão.</p><button id="undo">Remover último cabo</button><button id="ducttoggle">Abrir tampas das calhas</button><button id="help">COMO UTILIZAR</button></aside>
+<section class="work"><div class="toolbar"><h2>Quadro de distribuição — QDC</h2><button class="green" id="simulate">⚡ SIMULAR CIRCUITO</button></div><div class="board-scroll"><div class="board" id="board"><div class="external-terminals" id="external-terminals"></div><div class="duct side-duct leftduct" data-duct="left"></div><div class="duct side-duct rightduct" data-duct="right"></div><div class="duct topduct" data-duct="top"></div><div class="rail"></div><div class="slots" id="slots"></div><div class="duct midduct" data-duct="mid"></div><div class="bars"><div class="bar neutral"><div class="bar-label">BARRAMENTO N · 12 VIAS</div><div class="brass"><div class="terminal bus-terminal" data-id="N1" title="N · borne 1"><span class="screw"></span></div><div class="terminal bus-terminal" data-id="N2" title="N · borne 2"><span class="screw"></span></div><div class="terminal bus-terminal" data-id="N3" title="N · borne 3"><span class="screw"></span></div><div class="terminal bus-terminal" data-id="N4" title="N · borne 4"><span class="screw"></span></div><div class="terminal bus-terminal" data-id="N5" title="N · borne 5"><span class="screw"></span></div><div class="terminal bus-terminal" data-id="N6" title="N · borne 6"><span class="screw"></span></div><div class="terminal bus-terminal" data-id="N7" title="N · borne 7"><span class="screw"></span></div><div class="terminal bus-terminal" data-id="N8" title="N · borne 8"><span class="screw"></span></div><div class="terminal bus-terminal" data-id="N9" title="N · borne 9"><span class="screw"></span></div><div class="terminal bus-terminal" data-id="N10" title="N · borne 10"><span class="screw"></span></div><div class="terminal bus-terminal" data-id="N11" title="N · borne 11"><span class="screw"></span></div><div class="terminal bus-terminal" data-id="N12" title="N · borne 12"><span class="screw"></span></div></div><div class="bar-foot">MANUTEC • MODELO DIDÁTICO</div></div><div class="bar pe"><div class="bar-label">BARRAMENTO PE · 12 VIAS</div><div class="brass"><div class="terminal bus-terminal" data-id="PE1" title="PE · borne 1"><span class="screw"></span></div><div class="terminal bus-terminal" data-id="PE2" title="PE · borne 2"><span class="screw"></span></div><div class="terminal bus-terminal" data-id="PE3" title="PE · borne 3"><span class="screw"></span></div><div class="terminal bus-terminal" data-id="PE4" title="PE · borne 4"><span class="screw"></span></div><div class="terminal bus-terminal" data-id="PE5" title="PE · borne 5"><span class="screw"></span></div><div class="terminal bus-terminal" data-id="PE6" title="PE · borne 6"><span class="screw"></span></div><div class="terminal bus-terminal" data-id="PE7" title="PE · borne 7"><span class="screw"></span></div><div class="terminal bus-terminal" data-id="PE8" title="PE · borne 8"><span class="screw"></span></div><div class="terminal bus-terminal" data-id="PE9" title="PE · borne 9"><span class="screw"></span></div><div class="terminal bus-terminal" data-id="PE10" title="PE · borne 10"><span class="screw"></span></div><div class="terminal bus-terminal" data-id="PE11" title="PE · borne 11"><span class="screw"></span></div><div class="terminal bus-terminal" data-id="PE12" title="PE · borne 12"><span class="screw"></span></div></div><div class="bar-foot">MANUTEC • MODELO DIDÁTICO</div></div></div><div class="duct bottomduct" data-duct="bottom"></div><svg id="wires" viewBox="0 0 890 550" preserveAspectRatio="none"></svg></div></div><div class="notice" id="message">Escolha um componente, instale no trilho e conecte os bornes. O botão SIMULAR CIRCUITO verificará a montagem didática.</div><section class="safety-guidance" aria-label="Orientações de segurança elétrica">
+ <div class="safety-heading">⚠ SEGURANÇA EM PRIMEIRO LUGAR — NR-10 E NORMAS ABNT</div>
+ <p>Antes de executar qualquer instalação elétrica real, siga o <strong>projeto elétrico</strong>, os procedimentos da <strong>NR-10</strong> e as normas técnicas aplicáveis, especialmente a <strong>ABNT NBR 5410</strong>. Calcule as cargas e correntes para dimensionar adequadamente os <strong>cabos, disjuntores e dispositivos de proteção</strong>.</p>
+ <details><summary>Verificações essenciais antes de uma instalação real</summary>
+ <ul><li>Levantar a potência das cargas, a corrente de projeto e a demanda aplicável.</li><li>Dimensionar a seção dos condutores considerando método de instalação, capacidade de condução, fatores de correção e queda de tensão.</li><li>Selecionar disjuntores e proteções coordenados com os condutores, cargas e condições de curto-circuito.</li><li>Verificar DR/IDR/DDR, DPS, aterramento, continuidade do PE e proteção contra choques conforme o projeto e as normas aplicáveis.</li><li>Aplicar os procedimentos de desenergização, bloqueio, sinalização e verificação de ausência de tensão previstos na NR-10.</li></ul>
+ </details>
+ <p class="safety-limit"><strong>ATENÇÃO:</strong> A aprovação no EletroLab é exclusivamente didática. O simulador não calcula automaticamente bitolas, correntes de curto-circuito ou ajustes de proteção, nem substitui projeto, cálculos, inspeções, ensaios e procedimentos de segurança.</p>
+ </section><div class="legend"><span><i class="dot" style="background:#e53935"></i> L1</span><span><i class="dot" style="background:#111;border:1px solid #aaa"></i> L2</span><span><i class="dot" style="background:#70c9ec"></i> N</span><span><i class="dot" style="background:#24ba59"></i> PE</span></div></section></main>
+<script>
+const slots=document.getElementById('slots'),wiresSvg=document.getElementById('wires'),message=document.getElementById('message');
+let devices=['geral','dps','dr','circuito','circuito','circuito',null,null],wires=[],choice=null,selected=-1,start=null;
+const names={geral:'GERAL',dps:'DPS',dr:'DR / IDR',ddr:'DDR',circuito:'CIRCUITO'};
+const wireKindSelect=document.getElementById('wire-kind');
+const colors={L1:'#e53935',L2:'#17191a',N:'#70c9ec',PE:'#24ba59',R:'#ffffff'};
+let poleSettings=[2,1,2,1,2,2,0,0];
+function msg(s){message.textContent=s}
+function permitted(type,poles){return type==='dps'?[1,2].includes(poles):['dr','ddr'].includes(type)?[2,3].includes(poles):[1,2,3].includes(poles)}
+function render(){
+ slots.innerHTML='';
+ devices.forEach((d,i)=>{
+  let s=document.createElement('div');s.className='slot'+(selected===i?' selected':'');
+  s.ondblclick=e=>{if(e.target.closest('.terminal')||!devices[i])return; e.preventDefault(); e.stopPropagation(); const old=devices[i]; devices[i]=null; wires=wires.filter(w=>![w.a,w.b].some(id=>new RegExp('^'+i+'[TB][123]$').test(id))); selected=-1; start=null; render(); msg('Removido com duplo clique: '+names[old]+'. Cabos associados removidos.');};
+  s.onclick=e=>{if(e.target.closest('.terminal'))return;
+   if(choice&&!devices[i]){const poles=Number(document.getElementById('polecount').value);if(!permitted(choice,poles)){msg('Quantidade de polos incompatível com o componente. DPS: 1P/2P; DR/IDR/DDR: 2P/3P.');return;}devices[i]=choice;poleSettings[i]=poles;selected=i;render();msg('Componente instalado: '+names[devices[i]]+' '+poles+'P. Clique em outra posição vazia para repetir este dispositivo.');}
+   else if(d){selected=i;document.getElementById('polecount').value=String(poleSettings[i]||2);render();msg('Selecionado: '+names[d]+' '+poleSettings[i]+'P. Para mudar polos, use Alterar polos do selecionado.');}
+  };
+  if(d){
+   const poles=poleSettings[i]||2;
+   const terminals=Array.from({length:poles},(_,j)=>{
+    const x=((j+1)/(poles+1)*100).toFixed(2);
+    return `<div class="terminal top" style="left:calc(${x}% - 12px)" data-id="${i}T${j+1}" title="Entrada ${['dr','ddr'].includes(d)?(poles===2?['L1','N'][j]:['L1','L2','N'][j]):'polo '+(j+1)}"></div><div class="terminal bottom" style="left:calc(${x}% - 12px)" data-id="${i}B${j+1}" title="Saída ${['dr','ddr'].includes(d)?(poles===2?['L1','N'][j]:['L1','L2','N'][j]):'polo '+(j+1)}"></div>`;
+   }).join('');
+   const deviceLabel=d==='geral'?'DJ GERAL':d==='circuito'?'DJ '+String(devices.slice(0,i+1).filter(x=>x==='circuito').length).padStart(2,'0'):d==='dr'?'IDR / DR':d==='ddr'?'DDR':'DPS';
+   s.innerHTML=`<div class="device ${d}"><strong class="device-id">${deviceLabel}</strong><span class="device-poles">${poles}P</span><div class="brandmark">⚡ MANUTEC</div><div class="toggle"></div>${d==='dr'||d==='ddr'?'<span class="test" title="Teste">T</span>':''}${d==='dps'?'<span class="indicator"></span>':''}<div class="rating">${d==='dps'?'DPS • T2 · TT':d==='dr'||d==='ddr'?'PROTEÇÃO DIFERENCIAL':'CURVA C • 6 kA'}</div><div class="mark">DIN • ${i+1}</div>${terminals}</div>`;
+  }else{s.style.display='grid';s.style.placeItems='center';s.textContent='+';}
+  slots.appendChild(s);
+ });
+ document.querySelectorAll('.component-buttons button').forEach(b=>b.classList.toggle('selected',b.dataset.type===choice));draw();
+}
+document.getElementById('change-poles').onclick=()=>{
+ if(selected<0||!devices[selected]){msg('Selecione primeiro um componente instalado.');return;}
+ const poles=Number(document.getElementById('polecount').value),type=devices[selected];
+ if(!permitted(type,poles)){msg('Polos incompatíveis. DPS 1P/2P; DR/IDR/DDR 2P/3P; disjuntores 1P/2P/3P.');return;}
+ const prefix=String(selected);wires=wires.filter(w=>!new RegExp('^'+prefix+'[TB][123]$').test(w.a)&&!new RegExp('^'+prefix+'[TB][123]$').test(w.b));
+ poleSettings[selected]=poles;start=null;render();msg('Polos alterados para '+poles+'P. Cabos do dispositivo removidos para reconexão segura.');
+};
+function terminalXY(id){
+ const el=[...document.querySelectorAll('#board .terminal')].find(x=>x.dataset.id===id);
+ if(!el)return null;
+ const r=el.getBoundingClientRect(), br=document.getElementById('board').getBoundingClientRect();
+ return [(r.left+r.width/2-br.left)*890/br.width,(r.top+r.height/2-br.top)*550/br.height];
+}
+function isBus(id){return /^(PE|N)\d+$/.test(id)}
+function isTop(id){return /T[123]$/.test(id)}
+function isBottom(id){return /B[123]$/.test(id)}
+function roundedPath(points,radius=14){
+ if(points.length<2)return '';
+ let d=`M${points[0][0].toFixed(1)},${points[0][1].toFixed(1)}`;
+ for(let i=1;i<points.length-1;i++){
+  const p=points[i], prev=points[i-1], next=points[i+1];
+  const a=Math.hypot(p[0]-prev[0],p[1]-prev[1]),b=Math.hypot(next[0]-p[0],next[1]-p[1]);
+  if(!a||!b)continue;
+  const r=Math.min(radius,a/2,b/2);
+  const before=[p[0]-(p[0]-prev[0])/a*r,p[1]-(p[1]-prev[1])/a*r];
+  const after=[p[0]+(next[0]-p[0])/b*r,p[1]+(next[1]-p[1])/b*r];
+  d+=` L${before[0].toFixed(1)},${before[1].toFixed(1)} Q${p[0].toFixed(1)},${p[1].toFixed(1)} ${after[0].toFixed(1)},${after[1].toFixed(1)}`;
+ }
+ const last=points.at(-1);return d+` L${last[0].toFixed(1)},${last[1].toFixed(1)}`;
+}
+function ductGeometry(){
+ const board=document.getElementById('board').getBoundingClientRect();
+ const scaleX=890/board.width,scaleY=550/board.height;
+ const box=selector=>{const r=document.querySelector(selector).getBoundingClientRect();return {x:(r.left-board.left)*scaleX,y:(r.top-board.top)*scaleY,w:r.width*scaleX,h:r.height*scaleY}};
+ return {top:box('.topduct'),mid:box('.midduct'),bottom:box('.bottomduct'),left:box('.leftduct'),right:box('.rightduct')};
+}
+function route(a,b,aid,bid,index){
+ // V3.32: trilhas visuais paralelas dentro das calhas. Cada cabo recebe
+ // uma posição distinta, inclusive quando possui a mesma cor de outro.
+ // Não altera a topologia nem a validação das conexões elétricas.
+ const g=ductGeometry();
+ const ductFor=id=>id.startsWith('IN_')?'top':(id.startsWith('OUT_')||id.startsWith('SW_'))?'bottom':isTop(id)?'top':isBottom(id)?'mid':'bottom';
+ const tracks=5;
+ const track=index%tracks;
+ const centerTrack=(duct,trackNo)=>{
+  const d=g[duct];
+  const inset=Math.min(5,Math.max(2,d.h*.13));
+  const usable=Math.max(0,d.h-2*inset);
+  return d.y+inset+(trackNo+.5)*usable/tracks;
+ };
+ const ay=centerTrack(ductFor(aid),track),by=centerTrack(ductFor(bid),track);
+ const left=(a[0]+b[0])/2<445;
+ const side=left?g.left:g.right;
+ const sideX=side.x+side.w*(.3+.4*(index%3)/2);
+ // Bornes N/PE: a extremidade entra pelo lado inferior do alojamento,
+ // em vez de atravessar visualmente a face e o parafuso do borne.
+ const busA=isBus(aid),busB=isBus(bid);
+ const leadA=busA?[a[0],a[1]+16]:a;
+ const leadB=busB?[b[0],b[1]+16]:b;
+ const points=[a,...(busA?[leadA]:[]),[leadA[0],ay]];
+ if(Math.abs(ay-by)>2){points.push([sideX,ay],[sideX,by]);}
+ points.push([leadB[0],by],...(busB?[leadB]:[]),b);
+ return roundedPath(points,Math.min(5,Math.max(2,Math.min(g.top.h,g.mid.h,g.bottom.h)/7)));
+}
+let highlightedCable=null;
+function draw(){
+ if(highlightedCable>=wires.length)highlightedCable=null;
+ document.querySelectorAll('.bus-terminal.cable-inserted').forEach(t=>{t.classList.remove('cable-inserted');t.style.removeProperty('--insert-color');});
+ wires.forEach(w=>{for(const id of [w.a,w.b]){if(!isBus(id))continue;const t=[...document.querySelectorAll('.bus-terminal')].find(x=>x.dataset.id===id);if(t){t.classList.add('cable-inserted');t.style.setProperty('--insert-color',colors[w.kind]||'#b7c5cb');}}});
+ document.querySelectorAll(".terminal.cable-endpoint").forEach(t=>t.classList.remove("cable-endpoint"));
+ wiresSvg.innerHTML='';
+ const NS='http://www.w3.org/2000/svg';
+ wires.forEach((w,i)=>{
+  const a=terminalXY(w.a),b=terminalXY(w.b);if(!a||!b)return;
+  const d=route(a,b,w.a,w.b,i);
+  // Retorno branco com contorno escuro: legível tanto sobre painel claro quanto nas calhas.
+  if(w.kind==='R'){
+   const outline=document.createElementNS(NS,'path');
+   outline.setAttribute('d',d);outline.setAttribute('class','wire-return-outline');
+   outline.setAttribute('stroke','#36454e');outline.setAttribute('stroke-width','13');
+   outline.setAttribute('pointer-events','none');wiresSvg.appendChild(outline);
+  }
+  const path=document.createElementNS(NS,'path');path.setAttribute('d',d);path.setAttribute('stroke',colors[w.kind]);path.setAttribute('class','wire-line');if(highlightedCable===i){path.setAttribute('stroke-width','8');path.setAttribute('stroke-dasharray','13 4');}
+  wiresSvg.appendChild(path);
+  const hit=document.createElementNS(NS,'path');hit.setAttribute('d',d);hit.setAttribute('class','wire-hit');
+  hit.onclick=e=>{e.stopPropagation();if(highlightedCable!==i){highlightedCable=i;draw();msg('Cabo '+w.kind+' selecionado: origem '+w.a+' e destino '+w.b+'. Clique novamente no mesmo cabo para removê-lo, ou selecione outro.');}else{wires.splice(i,1);highlightedCable=null;window.__eletrolabAprovado=false;window.__switchOn=false;draw();atualizarLampada();msg('Cabo removido.')}};wiresSvg.appendChild(hit);
+  for(const [p,id] of [[a,w.a],[b,w.b]]){
+   const bus=isBus(id),top=isTop(id);
+   const sign=top?-1:1;
+   // Ferrule reaches the opening, but never covers the separate screw above it.
+   const ferrule=document.createElementNS(NS,'line');
+   ferrule.setAttribute('x1',p[0]);ferrule.setAttribute('y1',p[1]+(bus?3:sign*5));
+   ferrule.setAttribute('x2',p[0]);ferrule.setAttribute('y2',p[1]+(bus?10:sign*11));
+   ferrule.setAttribute('class','ferrule');wiresSvg.appendChild(ferrule);
+   if(bus){
+    // A ponta entra no furo frontal; a marca colorida fica no próprio borne.
+    // O parafuso superior é apertado visualmente via classe cable-inserted.
+   }else{
+    const collar=document.createElementNS(NS,'circle');collar.setAttribute('cx',p[0]);collar.setAttribute('cy',p[1]);collar.setAttribute('r',3.5);collar.setAttribute('fill','#25333b');collar.setAttribute('stroke','#a8bbc4');collar.setAttribute('stroke-width','1.5');wiresSvg.appendChild(collar);
+   }
+  }
+ });
+ // Tampas sobrepostas APENAS aos trechos internos das calhas; pontas nos bornes continuam visíveis.
+ // O desenho permanece na mesma escala do painel para preservar a geometria das conexões.
+ if(document.getElementById('board').classList.contains('closed-ducts')){
+   const g=ductGeometry();
+   const ducts=[g.top,g.mid,g.bottom,g.left,g.right].map((d,i)=>({x:d.x,y:d.y,w:d.w,h:d.h,vertical:i>=3}));
+   ducts.forEach((c,j)=>{
+     const rect=document.createElementNS(NS,'rect');
+     for(const [k,v] of Object.entries({x:c.x,y:c.y,width:c.w,height:c.h,rx:3,fill:'#46535a',stroke:'#85949b','stroke-width':2}))rect.setAttribute(k,v);
+     rect.setAttribute('class','duct-cover');wiresSvg.appendChild(rect);
+     const label=document.createElementNS(NS,'text');
+     label.setAttribute('x',c.x+(c.vertical?c.w/2:12));label.setAttribute('y',c.y+(c.vertical?c.h/2:23));
+     label.setAttribute('fill','#ffffff');label.setAttribute('font-size','11');label.setAttribute('font-weight','bold');
+     if(c.vertical){label.setAttribute('text-anchor','middle');label.setAttribute('transform',`rotate(-90 ${c.x+c.w/2} ${c.y+c.h/2})`)}
+     label.textContent=c.vertical?'CALHA LATERAL':'CALHA ORGANIZADORA';wiresSvg.appendChild(label);
+   });
+ }
+ if(highlightedCable!==null&&wires[highlightedCable]){
+  const w=wires[highlightedCable];
+  document.querySelectorAll('.terminal[data-id]').forEach(t=>{if(t.dataset.id===w.a||t.dataset.id===w.b)t.classList.add('cable-endpoint');});
+ }
+
+}
+window.addEventListener('resize' ,()=>requestAnimationFrame(draw));
+// EletroLab 3.9: identificação funcional dos polos de DR/IDR/DDR.
+// Modelo didático: DR/IDR/DDR bipolar 2P = L1 + N em ambas as redes; 3P = L1 + L2 + N somente se o dispositivo for compatível. Para proteção conjunta real L1/L2/N, observar dispositivo adequado e fabricante.
+function drPoleKind(id){
+ const m=/^(\d+)([TB])([123])$/.exec(id);
+ if(!m)return null;
+ const index=Number(m[1]), pole=Number(m[3]);
+ if(!['dr','ddr'].includes(devices[index]))return null;
+ const count=poleSettings[index];
+ if(count===3)return ['L1','L2','N'][pole-1]||null;
+ if(count===2)return ['L1','N'][pole-1]||null;
+ return null;
+}
+function drTerminal(id){const m=/^(\d+)[TB][123]$/.exec(id);return !!(m&&['dr','ddr'].includes(devices[Number(m[1])]))}
+function checkDifferentialPaths(){
+ const problems=[];
+ const differential=devices.map((d,i)=>['dr','ddr'].includes(d)?i:-1).filter(i=>i>=0);
+ if(!differential.length)return problems;
+ // Cada condutor ativo de um DR 3P deve ser alimentado na entrada e sair no polo correspondente.
+ for(const i of differential){
+  const poles=poleSettings[i];
+  const kinds=poles===3?['L1','L2','N']:['L1','N'];
+  for(let k=0;k<kinds.length;k++){
+   const kind=kinds[k],top=`${i}T${k+1}`,bottom=`${i}B${k+1}`;
+   if(!wires.some(w=>w.kind===kind&&(w.a===top||w.b===top)))problems.push(`DR ${i+1}: falta entrada ${kind} no polo ${k+1}.`);
+   if(!wires.some(w=>w.kind===kind&&(w.a===bottom||w.b===bottom)))problems.push(`DR ${i+1}: falta saída ${kind} no polo ${k+1}.`);
+  }
+ }
+ const neutral3p=differential.filter(i=>poleSettings[i]===3);
+ if(neutral3p.length){
+  // O barramento N de circuitos protegidos não pode receber cabo direto da entrada.
+  if(wires.some(w=>w.kind==='N'&&[w.a,w.b].includes('IN_N')&&/^N\d+$/.test(w.a==='IN_N'?w.b:w.a)))
+   problems.push('Neutro da rede ligado diretamente ao barramento N: encaminhe-o primeiro pelo DR e use a saída N do DR para o barramento protegido.');
+  const graph=new Map();
+  for(const w of wires.filter(w=>w.kind==='N')){
+   if(!graph.has(w.a))graph.set(w.a,[]);
+   if(!graph.has(w.b))graph.set(w.b,[]);
+   graph.get(w.a).push(w.b);graph.get(w.b).push(w.a);
+  }
+  const reachable=(source,target)=>{const seen=new Set([source]),queue=[source];for(const x of queue){if(x===target)return true;for(const y of graph.get(x)||[])if(!seen.has(y)){seen.add(y);queue.push(y)}}return false};
+  const hasProtectedNeutral=neutral3p.some(i=>{
+   const output=`${i}B3`;
+   return [...graph.keys()].some(id=>/^N\d+$/.test(id)&&reachable(output,id));
+  });
+  if(!hasProtectedNeutral)problems.push('O barramento N protegido precisa receber o neutro da saída do DR (polo N).');
+  // A ligação através do DR deve ser analisada por polos, não como curto entre bornes.
+  // Um caminho de fios IN_N -> N sem cruzar o interior do DR é desvio.
+  if([...graph.keys()].some(id=>/^N\d+$/.test(id)&&reachable('IN_N',id)))
+   problems.push('Bypass do DR: neutro da entrada ligado ao barramento N por cabos externos ao dispositivo.');
+ }
+ return problems;
+}
+function autoWireKind(a,b){
+ const direct=id=>id.startsWith('IN_')?id.slice(3):/^PE\d+$/.test(id)?'PE':/^N\d+$/.test(id)?'N':null;
+ const ka=direct(a),kb=direct(b);
+ if(ka&&kb&&ka!==kb)return null;
+ if(ka||kb)return ka||kb;
+ const attached=id=>[...new Set(wires.filter(w=>w.a===id||w.b===id).map(w=>w.kind))];
+ const kindsA=attached(a),kindsB=attached(b);
+ if(kindsA.length===1&&kindsB.length===1&&kindsA[0]!==kindsB[0])return null;
+ return kindsA.length===1?kindsA[0]:kindsB.length===1?kindsB[0]:null;
+}
+// v3.32: o borne tem prioridade sobre o cabo na região de conexão.
+// Um clique no trecho livre do cabo continua removendo somente aquele condutor.
+document.getElementById('board').addEventListener('click',function(e){
+ if(!e.target.closest('path.wire-hit, path.wire-line'))return;
+ const terminals=[...this.querySelectorAll('.terminal[data-id]')];
+ let nearest=null,dist=Infinity;
+ for(const t of terminals){
+  const r=t.getBoundingClientRect(),cx=(r.left+r.right)/2,cy=(r.top+r.bottom)/2;
+  const d=Math.hypot(e.clientX-cx,e.clientY-cy);
+  if(d<dist){dist=d;nearest=t}
+ }
+ if(nearest&&dist<=19){e.preventDefault();e.stopPropagation();e.stopImmediatePropagation();nearest.click()}
+},true);
+document.getElementById('board').addEventListener('click',e=>{let t=e.target.closest('.terminal');if(!t)return;let id=t.dataset.id;if(!start){start=id;t.classList.add('active');msg('Borne de origem '+id+' selecionado. Toque no borne de destino.');return}if(start===id){start=null;atualizarLampada();document.querySelectorAll('.terminal.active').forEach(x=>x.classList.remove('active'));return}let inferred=autoWireKind(start,id);
+const fixedKind=point=>point.startsWith('IN_')?point.slice(3):point.startsWith('OUT_')?point.split('_').at(-1):point==='SW_OUT'?'R':point==='SW_IN'?(document.querySelector('[data-circuit="luz"]').value==='220'?'L1':document.getElementById('light-phase').value):/^PE\d+$/.test(point)?'PE':/^N\d+$/.test(point)?'N':null;
+const fixedA=fixedKind(start),fixedB=fixedKind(id);
+let kind=fixedA||fixedB||drPoleKind(start)||drPoleKind(id)||wireKindSelect.value;
+const expectedA=drPoleKind(start),expectedB=drPoleKind(id);
+if((expectedA&&kind!==expectedA)||(expectedB&&kind!==expectedB)){
+ msg('DR/IDR/DDR: este polo está reservado a '+(expectedA||expectedB)+'. Confira a identificação L1, L2 e N; PE nunca atravessa o DR.');
+ start=null;atualizarLampada();document.querySelectorAll('.terminal.active').forEach(x=>x.classList.remove('active'));return;
+}
+if(kind==='PE'&&(drTerminal(start)||drTerminal(id))){
+ msg('Ligação proibida: o PE deve ir diretamente ao barramento de proteção e nunca passar pelo DR.');
+ start=null;atualizarLampada();document.querySelectorAll('.terminal.active').forEach(x=>x.classList.remove('active'));return;
+}
+
+if((fixedA&&fixedB&&fixedA!==fixedB)||(inferred&&inferred!==kind)){
+ msg('Ligação incompatível: confira L1, L2, N e PE.');start=null;atualizarLampada();document.querySelectorAll('.terminal.active').forEach(x=>x.classList.remove('active'));return;
+}
+const connectedKinds=point=>new Set(wires.filter(w=>w.a===point||w.b===point).map(w=>w.kind));
+if([start,id].some(point=>[...connectedKinds(point)].some(k=>k!==kind))){msg('Borne já possui condutor de outra identificação. Corrija a ligação antes de continuar.');start=null;atualizarLampada();document.querySelectorAll('.terminal.active').forEach(x=>x.classList.remove('active'));return;}
+let terminal='tubular';wires.push({a:start,b:id,kind,terminal});window.__eletrolabAprovado=false;window.__switchOn=false;start=null;atualizarLampada();document.querySelectorAll('.terminal.active').forEach(x=>x.classList.remove('active'));draw();msg('Cabo '+kind+' conectado automaticamente. Clique no trecho do cabo fora dos bornes para removê-lo.')});
+document.querySelectorAll('[data-type]').forEach(b=>b.onclick=()=>{choice=b.dataset.type;render();msg('Modo de instalação contínua: clique nas posições vazias para instalar '+names[choice]+' repetidamente. Para trocar, escolha outro componente.')});document.getElementById('remove').onclick=()=>{if(selected<0)return msg('Selecione um componente.');let n=selected;devices[n]=null;wires=wires.filter(w=>![w.a,w.b].some(id=>id.startsWith(n+'T')||id.startsWith(n+'B')));selected=-1;render();msg('Componente e suas conexões removidos.')};document.getElementById('clear').onclick=()=>{devices=Array(8).fill(null);wires=[];selected=-1;choice=null;start=null;render();msg('Painel limpo. Selecione um componente para começar.')};document.getElementById('ducttoggle').onclick=()=>{const closed=document.getElementById('board').classList.toggle('closed-ducts');document.getElementById('ducttoggle').textContent=closed?'Abrir tampas das calhas':'Fechar tampas das calhas';draw();msg(closed?'Tampas fechadas: trechos dos condutores ocultos dentro das calhas; bornes continuam visíveis.':'Tampas abertas: observe os percursos dos condutores nas calhas.');};document.getElementById('undo').onclick=()=>{wires.pop();window.__eletrolabAprovado=false;window.__switchOn=false;draw();atualizarLampada();msg('Último cabo removido.')};document.getElementById('help').onclick=()=>msg('1. Selecione a tensão. 2. Escolha um componente e toque nos espaços vazios do trilho para instalar várias unidades sem selecionar novamente. Para trocar o modelo, escolha outro componente. 3. Na entrada da rede a cor é automática; nas demais ligações selecione L1, L2, N, PE ou R (branco) no menu. 4. Toque em dois bornes para criar a conexão. 5. Toque uma vez no cabo para destacar os dois bornes; toque novamente no mesmo cabo para removê-lo. 6. Use SIMULAR CIRCUITO para ver o diagnóstico. Os barramentos têm 12 bornes independentes e parafusos ilustrados. Esquema TT: neutro e PE separados no QDC; DPS ligado ao PE. Os equipamentos MANUTEC são representações didáticas virtuais, não produtos fabricados. Antes de uma instalação real, siga o projeto elétrico, a NR-10 e as normas ABNT aplicáveis, especialmente a NBR 5410; dimensione condutores e proteções por cálculo. A simulação não substitui inspeções, ensaios ou manuais de fabricantes.');
+// Validador didático 3.20: verifica conexões representadas, não segurança de instalações reais.
+function validarTT315(){
+ const issues=[], add=t=>{if(!issues.includes(t))issues.push(t)};
+ const present=(id,kind)=>wires.some(w=>w.kind===kind&&(w.a===id||w.b===id));
+ const links=(kind)=>{
+  const graph=new Map();
+  const edge=(a,b)=>{if(!graph.has(a))graph.set(a,new Set());if(!graph.has(b))graph.set(b,new Set());graph.get(a).add(b);graph.get(b).add(a)};
+  wires.filter(w=>w.kind===kind).forEach(w=>edge(w.a,w.b));
+  const bus=kind==='PE'?'PE':'N';
+  for(let j=1;j<12;j++)edge(bus+j,bus+(j+1));
+  // Continuidade didática através de disjuntores e DR, nunca através de DPS.
+  devices.forEach((d,i)=>{if(!d||d==='dps')return;
+   for(let pole=1;pole<=(poleSettings[i]||0);pole++){
+    const t=i+'T'+pole,b=i+'B'+pole;
+    const expected=['dr','ddr'].includes(d)?drPoleKind(t):null;
+    if((!expected||expected===kind)&&present(t,kind)&&present(b,kind))edge(t,b);
+   }
+  });
+  return (a,b)=>{const seen=new Set([a]),queue=[a];for(const x of queue){if(x===b)return true;for(const y of graph.get(x)||[])if(!seen.has(y)){seen.add(y);queue.push(y)}}return false};
+ };
+ const reachable=Object.fromEntries(['L1','L2','N','PE','R'].map(k=>[k,links(k)]));
+ const direct=(a,b,kind)=>wires.some(w=>w.kind===kind&&((w.a===a&&w.b===b)||(w.a===b&&w.b===a)));
+ const attached=(id)=>wires.filter(w=>w.a===id||w.b===id);
+ const light220=document.querySelector('[data-circuit="luz"]').value==='220';
+ const lightPhase=light220?'L1':document.getElementById('light-phase').value;
+ const lightIndex=devices.map((d,i)=>d==='circuito'?i:-1).filter(i=>i>=0)[0];
+ // Verificação topológica: o comando não pode ser contornado ou alimentado por borne indevido.
+ if(lightIndex!==undefined){
+  if(!direct(lightIndex+'B1','SW_IN',lightPhase))add('ILUMINAÇÃO: ligue diretamente a saída do DJ 01 ao borne de entrada do interruptor usando '+lightPhase+'.');
+  if(!direct('SW_OUT','OUT_luz_R','R'))add('ILUMINAÇÃO: ligue o retorno branco diretamente do interruptor ao borne R da lâmpada.');
+  if(light220&&!direct(lightIndex+'B2','OUT_luz_L2','L2'))add('ILUMINAÇÃO 220 V: ligue L2 do segundo polo do DJ 01 diretamente à lâmpada.');
+  if(attached('SW_IN').some(w=>w.kind!==lightPhase))add('INTERRUPTOR: a entrada deve receber somente '+lightPhase+'.');
+  if(attached('SW_OUT').some(w=>w.kind!=='R'))add('INTERRUPTOR: a saída deve receber somente o retorno branco (R).');
+  if(attached('OUT_luz_R').some(w=>w.kind!=='R'))add('LÂMPADA: o borne R deve receber somente o retorno branco.');
+  if(attached('SW_IN').length!==1||attached('SW_OUT').length!==1)add('INTERRUPTOR: utilize uma ligação em cada borne, sem derivações ou pontes.');
+  if(attached('OUT_luz_R').length!==1)add('LÂMPADA: o borne R deve receber uma única ligação de retorno.');
+  if(light220){
+   if(attached('OUT_luz_L2').length!==1||attached('OUT_luz_L2').some(w=>w.kind!=='L2'))add('ILUMINAÇÃO 220 V: o segundo borne da lâmpada deve receber somente L2.');
+  }else{
+   if(attached('OUT_luz_N').length!==1||attached('OUT_luz_N').some(w=>w.kind!=='N'))add('ILUMINAÇÃO 127 V: o segundo borne da lâmpada deve receber somente o neutro N.');
+  }
+ }
+
+ if(!devices.includes('geral'))add('Instale o disjuntor geral.');
+ if(!devices.some(d=>d==='dr'||d==='ddr'))add('Instale um DR/IDR ou DDR.');
+ if(!devices.includes('dps'))add('Instale um DPS.');
+ if(!devices.includes('circuito'))add('Instale um disjuntor de circuito.');
+ if(devices.some((d,i)=>['geral','circuito'].includes(d)&&poleSettings[i]===3))add('Disjuntor 3P incompatível com o exercício de duas fases.');
+ for(const k of (document.getElementById('voltage').value==='220'?['L1','L2','N','PE']:['L1','N','PE']))if(!present('IN_'+k,k))add('Entrada '+k+' não conectada.');
+ if(![...Array(12)].some((_,i)=>reachable.PE('IN_PE','PE'+(i+1))))add('PE da rede deve alcançar o barramento PE.');
+ if(wires.some(w=>(w.kind==='N'&&[w.a,w.b].some(id=>/^PE\d+$/.test(id)))||(w.kind==='PE'&&[w.a,w.b].some(id=>/^N\d+$/.test(id)))))add('Esquema TT: proibida ponte entre N e PE no QDC.');
+ const byTerminal=new Map();
+ for(const w of wires){
+  if(w.a===w.b)add('Cabo ligado ao mesmo borne.');
+  if(w.kind==='PE'&&[w.a,w.b].some(drTerminal))add('PE não pode passar pelo DR/DDR.');
+  for(const id of [w.a,w.b]){
+   if(!byTerminal.has(id))byTerminal.set(id,new Set());byTerminal.get(id).add(w.kind);
+   if(/^N\d+$/.test(id)&&w.kind!=='N')add('Barramento N com cabo diferente de N.');
+   if(/^PE\d+$/.test(id)&&w.kind!=='PE')add('Barramento PE com cabo diferente de PE.');
+   if(id.startsWith('IN_')&&w.kind!==id.slice(3))add('Identificação incorreta na entrada '+id+'.');
+  }
+ }
+ for(const [id,kinds] of byTerminal)if(kinds.size>1)add('Borne '+id+' com condutores incompatíveis.');
+ const pairs=new Set();for(const w of wires){const key=[w.a,w.b].sort().join(':');if(pairs.has(key))add('Ligação duplicada '+key+'.');pairs.add(key)}
+ // DPS deste protótipo: cada polo tem borne superior ativo e inferior de descarga PE.
+ devices.forEach((d,i)=>{if(d!=='dps')return;
+  const poles=poleSettings[i];
+  for(let pole=1;pole<=poles;pole++){
+   const phase=pole===1?'L1':(document.getElementById('voltage').value==='220'?'L2':'N'), t=i+'T'+pole,b=i+'B'+pole;
+   if(!reachable[phase]('IN_'+phase,t))add('DPS '+(i+1)+' polo '+pole+': falta alimentação '+phase+'.');
+   if(![...Array(12)].some((_,j)=>reachable.PE(b,'PE'+(j+1))))add('DPS '+(i+1)+' polo '+pole+': falta caminho de descarga ao barramento PE.');
+  }
+ });
+ // Saídas 3.17: iluminação = receptáculo de dois bornes; tomada e chuveiro = três bornes.
+ const circuitIndices=devices.map((v,j)=>v==='circuito'?j:-1).filter(j=>j>=0);
+ const circuitNames=['luz','tug','chuveiro'];
+ devices.forEach((d,i)=>{if(!['geral','circuito'].includes(d))return;
+  const poles=poleSettings[i];
+  const name=d==='circuito'?circuitNames[circuitIndices.indexOf(i)]:null;
+  if(d==='circuito'&&!name){add('Há mais de três circuitos: configure a saída correspondente.');return;}
+  const voltage=name?document.querySelector(`[data-circuit="${name}"]`).value:null;
+  const lightPhase=document.getElementById('light-phase').value;
+  const expected=name?(voltage==='220'?['L1','L2']:(name==='luz'?[lightPhase]:['L1'])):(document.getElementById('voltage').value==='220'?['L1','L2']:['L1']);
+  if(d==='circuito'&&poles!==expected.length)add('Circuito '+name.toUpperCase()+': configure disjuntor de '+expected.length+' polo(s) conforme a tensão.');
+  for(let pole=1;pole<=Math.min(poles,expected.length);pole++){
+   const k=expected[pole-1];
+   if(!reachable[k]('IN_'+k,i+'T'+pole))add(names[d]+' '+(i+1)+': entrada '+k+' sem alimentação da rede.');
+   if(d==='circuito'){
+    const output='OUT_'+name+'_'+k;
+    if(name==='luz'){if(pole===1){if(!reachable[k](i+'B'+pole,'SW_IN'))add('ILUMINAÇÃO: leve a fase do disjuntor ao borne de entrada do interruptor.');}else if(!reachable[k](i+'B'+pole,'OUT_luz_'+k))add('ILUMINAÇÃO: conecte o segundo polo à lâmpada.');}else if(!reachable[k](i+'B'+pole,output))add(names[d]+' '+(i+1)+': conecte a saída '+k+' ao ponto '+name.toUpperCase()+'.');
+   }else if(!present(i+'B'+pole,k))add(names[d]+' '+(i+1)+': saída '+k+' sem conexão.');
+  }
+  if(d==='circuito'&&name==='luz'&&voltage==='220'){
+   if(!reachable.L1(i+'B1','SW_IN'))add('ILUMINAÇÃO 220 V: leve L1 do disjuntor bipolar ao interruptor simples.');
+   if(!reachable.L2(i+'B2','OUT_luz_L2'))add('ILUMINAÇÃO 220 V: leve L2 diretamente do segundo polo do disjuntor à lâmpada.');
+   if(!reachable.R('SW_OUT','OUT_luz_R'))add('ILUMINAÇÃO 220 V: conecte o retorno branco do interruptor ao borne R da lâmpada.');
+   if(wires.some(w=>['L1','L2','N'].includes(w.kind)&&[w.a,w.b].includes('OUT_luz_R')))add('ILUMINAÇÃO 220 V: o borne R deve receber apenas o retorno do interruptor.');
+   if(wires.some(w=>w.kind==='N'&&[w.a,w.b].some(x=>x.startsWith('OUT_luz_'))))add('ILUMINAÇÃO 220 V entre fases: não utilize neutro na lâmpada.');
+  }
+  if(d==='circuito'&&name==='luz'&&voltage==='127'){
+   const phase=lightPhase;
+   if(!reachable[phase](i+'B1','SW_IN'))add('ILUMINAÇÃO: fase do disjuntor deve alimentar o interruptor.');
+   if(!reachable.R('SW_OUT','OUT_luz_R'))add('ILUMINAÇÃO: conecte o retorno branco do interruptor ao borne R da lâmpada.');
+   if(wires.some(w=>w.kind===phase&&[w.a,w.b].includes('OUT_luz_R')))add('ILUMINAÇÃO: fase direta no receptáculo contorna o interruptor.');
+   if(![...Array(12)].some((_,j)=>reachable.N('N'+(j+1),'OUT_luz_N')))add('ILUMINAÇÃO: conecte o neutro diretamente do barramento N ao receptáculo (sem passar pelo disjuntor monopolar).');
+   if(![...Array(12)].some((_,j)=>reachable.N('IN_N','N'+(j+1))))add('ILUMINAÇÃO: barramento N sem alimentação do neutro da rede pelo DR apropriado.');
+  }
+ });
+ // Iluminação com dois bornes: o receptáculo simples não tem borne PE.
+ // Tomadas e chuveiro: PE obrigatório, diretamente ligado ao barramento de proteção.
+ for(const name of ['tug','chuveiro'])if(circuitIndices.length>circuitNames.indexOf(name)){
+  if(![...Array(12)].some((_,n)=>reachable.PE('PE'+(n+1),'OUT_'+name+'_PE')))
+   add('Ponto '+name.toUpperCase()+': conecte o terminal PE ao barramento de proteção.');
+ }
+ // Impedir troca de identificação nos pontos de utilização.
+ for(const w of wires)for(const id of [w.a,w.b]){
+  const m=/^OUT_(luz|tug|chuveiro)_(L1|L2|N|PE|R)$/.exec(id);
+  if(m&&w.kind!==m[2])add('Ponto '+m[1]+': terminal '+m[2]+' com condutor incorreto.');
+ }
+ issues.push(...checkDifferentialPaths().filter(t=>!issues.includes(t)));
+ // Para o exercício TT com neutro protegido, o DR precisa monitorar L1+L2+N.
+ devices.forEach((d,i)=>{if(!['dr','ddr'].includes(d))return;
+  const dual=document.getElementById('voltage').value==='220';
+  if(poleSettings[i]!== (dual?3:2))add('Configure DR/DDR didático com '+(dual?'3 polos (L1+L2+N)':'2 polos (L1+N)')+' compatível com o fabricante.');
+  const kinds=dual?['L1','L2','N']:['L1','N'];
+  kinds.forEach((k,j)=>{if(!reachable[k]('IN_'+k,i+'T'+(j+1)))add('DR/DDR '+(i+1)+': entrada '+k+' não alcança a rede.');});
+ });
+ if(!present('SW_IN',document.querySelector('[data-circuit="luz"]').value==='220'?'L1':document.getElementById('light-phase').value))add('Conecte a fase ao interruptor simples.');
+ if(!present('SW_OUT','R')||!present('OUT_luz_R','R'))add('Conecte o retorno do interruptor ao receptáculo.');
+ if(wires.length<10)add('Montagem ainda incompleta: conecte alimentação, proteção e circuitos.');
+ return issues;
+}
+document.getElementById('simulate').onclick=()=>{
+ const issues=validarTT315();
+ window.__eletrolabAprovado=issues.length===0;window.__switchOn=false; atualizarLampada();
+ const info='';
+ msg(issues.length?'⚠ ATENÇÃO! VERIFIQUE SUA MONTAGEM.\nEncontramos ligações que precisam ser corrigidas. Confira os bornes indicados e tente novamente:\n• '+issues.join('\n• ')+'\n\nCircuito virtual ainda não energizado. Você pode repetir a atividade quantas vezes quiser.'+info:'✓ SIMULAÇÃO APROVADA!\nLigações aprovadas nas verificações didáticas disponíveis, incluindo os bornes do interruptor e da lâmpada. Acione o interruptor para controlar a lâmpada. Os demais pontos indicam alimentação apenas virtual. Consulte as orientações de segurança abaixo.'+info);
+};render();
+
+// Ajusta o QDC à largura disponível em PC, notebook e celular.
+(function ajustarQuadro(){
+ const viewport=document.querySelector('.board-scroll');
+ const quadro=document.getElementById('board');
+ function ajustar(){
+   const largura=Math.max(1,viewport.clientWidth-12);
+   const escala=Math.min(1,largura/890);
+   quadro.style.zoom=String(escala);
+   viewport.style.minHeight=((550+260)*escala+12)+'px';
+ }
+ if(window.ResizeObserver){new ResizeObserver(ajustar).observe(viewport)}
+ window.addEventListener('resize',ajustar);
+ ajustar();
+})();
+</script><script>
+function atualizarLampada(){
+ const approved=!!window.__eletrolabAprovado;
+ const on=approved&&!!window.__switchOn;
+ document.querySelector('.lamp-holder')?.classList.toggle('lit',on);
+ const b=document.getElementById('light-switch');
+ if(b){b.classList.toggle('on',on);b.textContent=on?'LIGADO':'DESLIGADO';b.setAttribute('aria-pressed',String(on));}
+ for(const [id,label] of [['luz','Iluminação'],['tug','Tomada'],['chuveiro','Chuveiro']]){
+  const card=document.querySelector('#external-terminals .out-device[data-output="'+id+'"]');
+  if(!card)continue;
+  let status=card.querySelector('.virtual-status');
+  if(!status){status=document.createElement('span');status.className='virtual-status';card.appendChild(status);}
+  const isLamp=id==='luz';
+  const active=approved&&(!isLamp||on);
+  status.className='virtual-status '+(active?(isLamp?'lamp-on':'ready'):'off');
+  status.textContent=!approved?'AGUARDANDO SIMULAÇÃO':isLamp?(on?'LÂMPADA ACESA':'LÂMPADA APAGADA'):'ALIMENTAÇÃO VIRTUAL';
+  status.setAttribute('aria-label',label+': '+status.textContent.toLowerCase());
+  card.classList.toggle('virtual-ready',approved&&!isLamp);
+  card.classList.toggle('virtual-lamp-on',on&&isLamp);
+ }
+}
+/* Extensão 3.3: bornes físicos virtuais de entrada e saídas configuráveis. */
+(()=>{
+ const panel=document.getElementById('external-terminals');
+ const sel=document.getElementById('voltage');
+ const kinds=['L1','L2','N','PE'];
+ const pin=(id,kind)=>`<span class="feed-socket"><span class="feed-label">${kind}</span><span class="terminal ext-pin" data-id="${id}" data-kind="${kind}" title="Borne ${kind}: clique para conectar"><span class="feed-hole"></span></span></span>`;
+ function update(){
+  const dual=sel.value==='220';
+  document.getElementById('feed-note').textContent=dual?'Esquema TT: rede 127/220 V, L1+L2+N+PE; N e PE separados':'Esquema TT: rede 127 V, L1+N+PE; N e PE separados';
+  document.querySelectorAll('.outvoltage').forEach(x=>{if(!dual){x.value='127';x.querySelector('option[value="220"]').disabled=true}else{x.querySelector('option[value="220"]').disabled=false}});
+  const phaseSelector=document.getElementById('light-phase');phaseSelector.querySelector('option[value="L2"]').disabled=!dual;if(!dual)phaseSelector.value='L1';
+  const light220=document.querySelector('[data-circuit="luz"]').value==='220';
+  document.getElementById('light-phase-label').style.display=light220?'none':'';
+  document.getElementById('light-wiring-hint').textContent=light220?'220 V: L1 → interruptor simples → retorno R → lâmpada; L2 → lâmpada. Sem neutro. Use disjuntor bipolar.':'127 V: '+phaseSelector.value+' → interruptor simples → retorno R → lâmpada; N → lâmpada. Use disjuntor monopolar.';
+  const input=dual?kinds:['L1','N','PE'];
+  let html=`<div class="ext-block input"><span class="ext-title">ENTRADA DA REDE · ${dual?'127/220':'127'} V</span><div class="ext-row">${input.map(k=>pin('IN_'+k,k)).join('')}</div></div>`;
+  html+='<div class="ext-block output"><span class="ext-title">PONTOS DE UTILIZAÇÃO</span>';
+  html+=`<div class="ext-row switch-row"><span class="out-caption">INTERRUPTOR SIMPLES<br>Iluminação</span><span class="out-device switch-device"><button type="button" id="light-switch" aria-pressed="false" title="Abrir ou fechar interruptor após simular">DESLIGADO</button><span class="feed-socket"><span class="feed-label">${document.querySelector('[data-circuit="luz"]').value==='220'?'L1':document.getElementById('light-phase').value}</span><span class="terminal ext-pin" data-id="SW_IN" title="Fase vinda do disjuntor"><span class="feed-hole"></span></span></span><span class="feed-socket"><span class="feed-label">R</span><span class="terminal ext-pin" data-id="SW_OUT" title="Retorno para lâmpada"><span class="feed-hole"></span></span></span></span></div>`;
+  for(const [id,label,cls] of [['luz','ILUMINAÇÃO','lamp'],['tug','TOMADA 2P+T','socket'],['chuveiro','CHUVEIRO','shower']]){
+   const voltage=document.querySelector(`[data-circuit="${id}"]`).value;
+   const active=id==='luz'?['R',voltage==='220'?'L2':'N']:(voltage==='220'?['L1','L2']:['L1','N']);
+   // No desenho didático 2P+T, o PE fica entre os dois contatos ativos.
+   const order=id==='luz'?active:[active[0],'PE',active[1]];
+   const pins=order.map((k,n)=>`<span class="feed-socket ${k==='PE'?'earth-center':n===0?'left-active':'right-active'}"><span class="feed-label">${k}</span><span class="terminal ext-pin" data-id="OUT_${id}_${k}" data-kind="${k}" title="${label}: conectar condutor ${k}" aria-label="${label}: borne ${k}" tabindex="0"><span class="feed-hole"></span></span></span>`).join('');
+   html+=`<div class="ext-row"><span class="out-caption">${label}<br>${voltage} V</span><span class="out-device ${cls}" data-output="${id}">${id==='luz'?'<span class="lamp-holder" aria-hidden="true"><span class="bulb"></span><span class="holder-rim"></span><span class="holder-body"></span></span>':id==='tug'?'<span class="outlet-face" aria-hidden="true"><span class="outlet-earth"></span><span class="outlet-live left"></span><span class="outlet-live right"></span></span>':'<span class="shower-icon" aria-hidden="true">🚿</span>'}${pins}</span></div>`;
+  }
+  panel.innerHTML=html+'</div>'; document.getElementById('light-switch').onclick=()=>{if(!window.__eletrolabAprovado){msg('Primeiro conclua as ligações e clique em SIMULAR CIRCUITO.');return;}window.__switchOn=!window.__switchOn;atualizarLampada();}; if(window.__eletrolabPalette) panel.appendChild(window.__eletrolabPalette);
+  panel.querySelectorAll('.ext-block.output .ext-pin').forEach(pin=>pin.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();pin.click();}}));
+  // Remover apenas cabos conectados a bornes externos que deixaram de existir.
+  const valid=new Set([...panel.querySelectorAll('.terminal')].map(t=>t.dataset.id));
+  wires=wires.filter(w=>[w.a,w.b].every(id=>!id.startsWith('IN_')&&!id.startsWith('OUT_')&&!id.startsWith('SW_')||valid.has(id)));
+  start=null;window.__eletrolabAprovado=false;window.__switchOn=false;
+  draw();atualizarLampada();
+ }
+ // Menu próprio: não depende da lista nativa do navegador.
+ const selector=document.getElementById('wire-kind');
+ const originalLabel=document.querySelector('aside label[for="wire-kind"]');
+ selector.style.display='none';
+ if(originalLabel)originalLabel.style.display='none';
+ const palette=document.createElement('div');
+ palette.className='feed-wire-palette';
+ palette.innerHTML=`<span class="cable-title">CABO PARA LIGAÇÕES</span>
+ <button type="button" id="cable-menu-toggle" class="cable-toggle" aria-expanded="false" aria-controls="cable-menu"><span id="cable-current">🔴 Vermelho — L1</span><span aria-hidden="true">▾</span></button>
+ <div id="cable-menu" class="cable-options" hidden role="group" aria-label="Escolha a cor do cabo">
+ <button type="button" data-cable="L1"><span class="cable-dot" style="background:#e53935"></span>Vermelho — L1</button>
+ <button type="button" data-cable="L2"><span class="cable-dot" style="background:#17191a;border-color:#aaa"></span>Preto — L2</button>
+ <button type="button" data-cable="N"><span class="cable-dot" style="background:#70c9ec"></span>Azul — N</button>
+ <button type="button" data-cable="PE"><span class="cable-dot" style="background:#24ba59"></span>Verde — PE</button>
+ <button type="button" data-cable="R"><span class="cable-dot" style="background:#ffffff;border:2px solid #46535a"></span>Branco — retorno</button>
+ </div>`;
+ const names={L1:'🔴 Vermelho — L1',L2:'⚫ Preto — L2',N:'🔵 Azul — N',PE:'🟢 Verde — PE',R:'⚪ Branco — retorno'};
+ const toggle=palette.querySelector('#cable-menu-toggle');
+ const menu=palette.querySelector('#cable-menu');
+ function closeMenu(){menu.hidden=true;toggle.setAttribute('aria-expanded','false')}
+ toggle.addEventListener('click',e=>{e.stopPropagation();const opening=menu.hidden;menu.hidden=!opening;toggle.setAttribute('aria-expanded',String(opening))});
+ palette.querySelectorAll('[data-cable]').forEach(btn=>btn.addEventListener('click',e=>{
+   e.stopPropagation();selector.value=btn.dataset.cable;
+   selector.dispatchEvent(new Event('change',{bubbles:true}));
+   palette.querySelector('#cable-current').textContent=names[selector.value];
+   closeMenu();
+ }));
+ document.addEventListener('click',e=>{if(!palette.contains(e.target))closeMenu()});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
+ window.__eletrolabPalette=palette;
+ panel.appendChild(palette);
+ sel.addEventListener('change',update);
+ document.querySelectorAll('.outvoltage').forEach(x=>x.addEventListener('change',update));
+ document.getElementById('light-phase').addEventListener('change',update);
+ // Evitar mensagens de sucesso falsas: a checagem original é preliminar.
+ // A validação TT 3.15 é executada exclusivamente pelo validador principal.
+
+ update();
+})();
+</script><script>
+document.addEventListener('DOMContentLoaded',()=>{
+ const labels=[...document.querySelectorAll('span,div')].filter(el=>el.children.length===0&&el.textContent.trim()==='PE');
+ const candidate=labels.find(el=>el.parentElement?.textContent.includes('L1')&&el.parentElement?.textContent.includes('L2'));
+ if(candidate&&!candidate.parentElement.textContent.includes('Retorno')){
+  const item=document.createElement('span');item.style.marginLeft='9px';item.innerHTML='<span style="display:inline-block;width:11px;height:11px;background:#fff;border:1px solid #555;border-radius:50%;vertical-align:middle"></span> R — retorno branco';candidate.parentElement.appendChild(item);
+ }
+});
+</script></body></html>
