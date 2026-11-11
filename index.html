@@ -136,6 +136,7 @@ header .brand .logo img{
     object-fit:fill !important;
     display:block;
     border:none !important;
+}
 
 .brand strong{
 font-size:30px !important;  font-weight:800;
@@ -153,7 +154,6 @@ nav a{
 header .btn{
   font-size:17px;
   padding:15px 22px;
-}
 }
 
 #planos-manutencao {
@@ -177,6 +177,83 @@ header .btn{
 }
 
 
+
+/* Botão da calculadora de orçamento — cabeçalho responsivo */
+.btn-calculadora{background:#f5c842;color:#082b4a;border:2px solid #e5b52e;text-align:center;white-space:nowrap;transition:filter .2s}
+.btn-calculadora:hover,.btn-calculadora:focus-visible{filter:brightness(.94)}
+.header-inner nav{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:8px}
+@media(max-width:1100px){.header-inner{flex-wrap:wrap}.header-inner nav{width:100%;justify-content:center}}
+@media(max-width:560px){.header-inner nav{width:100%;justify-content:center;flex-wrap:wrap}.header-inner nav .btn{font-size:14px;padding:11px 12px}.header-inner .brand{max-width:100%}}
+
+/* Ajuste de destaque do nome da empresa sem cortar o cabeçalho */
+.header-inner .brand{min-width:0;gap:14px!important}
+.header-inner .brand>div:last-child{min-width:0}
+.header-inner .brand strong{font-size:clamp(24px,2.4vw,34px)!important;font-weight:800;line-height:1.12;letter-spacing:.3px}
+.header-inner .brand small{font-size:clamp(15px,1.35vw,19px)!important;line-height:1.3;margin-top:7px}
+@media(max-width:1100px){.header-inner .brand{width:100%;justify-content:center}}
+@media(max-width:560px){
+ .header-inner .brand{gap:10px!important;justify-content:center}
+ .header-inner .logo{width:130px!important;height:112px!important;flex:0 0 130px}
+ header .brand .logo img{width:130px!important;height:112px!important;object-fit:contain!important}
+ .header-inner .brand strong{font-size:clamp(20px,5.5vw,27px)!important}
+ .header-inner .brand small{font-size:15px!important}
+}
+
+/* Cabeçalho Manutec: logomarca integral, nome em destaque e menu abaixo */
+header .header-inner{
+  display:flex!important;flex-direction:column!important;align-items:center!important;
+  justify-content:center!important;gap:12px!important;min-height:0!important;
+  padding:14px 0 18px!important;
+}
+header .header-inner .brand{
+  display:flex!important;flex-direction:row!important;align-items:center!important;
+  justify-content:center!important;gap:18px!important;width:100%!important;
+  min-width:0;text-align:left;
+}
+header .header-inner .logo{
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  width:185px!important;height:150px!important;flex:0 0 185px!important;
+  overflow:visible!important;border:0!important;background:transparent!important;
+}
+header .header-inner .logo img{
+  width:100%!important;height:100%!important;max-width:100%!important;
+  object-fit:contain!important;object-position:center!important;display:block!important;
+}
+header .header-inner .brand strong{
+  font-size:clamp(27px,3.2vw,43px)!important;line-height:1.12!important;
+  font-weight:800!important;color:#0d3b66!important;
+}
+header .header-inner .brand small{
+  display:block!important;font-size:clamp(16px,1.8vw,23px)!important;
+  margin-top:6px!important;line-height:1.25!important;
+}
+header .header-inner nav{
+  display:flex!important;width:100%!important;align-items:center!important;
+  justify-content:center!important;flex-wrap:wrap!important;gap:10px 17px!important;
+  text-align:center;
+}
+header .header-inner nav a{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  font-size:16px!important;line-height:1.3!important;white-space:normal!important;
+}
+header .header-inner nav .btn{padding:12px 17px!important;font-size:16px!important}
+@media(max-width:650px){
+  header .header-inner{padding:12px 0 14px!important;gap:10px!important}
+  header .header-inner .brand{gap:10px!important}
+  header .header-inner .logo{width:112px!important;height:105px!important;flex:0 0 112px!important}
+  header .header-inner .brand strong{font-size:clamp(19px,5.2vw,28px)!important}
+  header .header-inner .brand small{font-size:14px!important}
+  header .header-inner nav{gap:8px!important}
+  header .header-inner nav a{font-size:14px!important}
+  header .header-inner nav .btn{padding:10px 12px!important;font-size:14px!important}
+}
+@media(max-width:360px){
+  header .header-inner .logo{width:86px!important;height:86px!important;flex-basis:86px!important}
+  header .header-inner .brand strong{font-size:19px!important}
+}
+/* Botão Cursos - Manutec EAD */
+header .header-inner nav .btn-cursos{background:#087a63!important;color:#fff!important;border-radius:9px;font-weight:700}
+header .header-inner nav .btn-cursos:hover{background:#05614e!important}
 </style>
 </head>
 <body>
@@ -202,6 +279,8 @@ header .btn{
 <a href="#planos-manutencao">Planos</a>
 
       <a href="#contato">Contato</a>
+<a class="btn btn-cursos" href="/ead/apresentacao.html" aria-label="Conhecer cursos da Manutec EAD">📚 Cursos</a>
+<a class="btn btn-calculadora" href="/orcamento.html" onclick="if(typeof gtag==='function')gtag('event','clique_calculadora_orcamento');">⚡ Calcular orçamento</a>
 <a class="btn primary" href="https://wa.me/5521969799854" onclick="gtag('event','clique_whatsapp');">        Orçamento
       </a>
     </nav>
