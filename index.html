@@ -254,6 +254,47 @@ header .header-inner nav .btn{padding:12px 17px!important;font-size:16px!importa
 /* Botão Cursos - Manutec EAD */
 header .header-inner nav .btn-cursos{background:#087a63!important;color:#fff!important;border-radius:9px;font-weight:700}
 header .header-inner nav .btn-cursos:hover{background:#05614e!important}
+
+/* Revisão de layout: logomarca maior e menu em duas linhas equilibradas */
+header .header-inner{gap:6px!important;padding:12px 0 17px!important}
+header .header-inner .brand{gap:26px!important;max-width:100%!important}
+header .header-inner .logo{width:245px!important;height:180px!important;flex:0 0 245px!important}
+header .header-inner .logo img{width:100%!important;height:100%!important;object-fit:contain!important}
+header .header-inner .brand strong{font-size:clamp(30px,4vw,46px)!important}
+header .header-inner nav{display:flex!important;flex-direction:column!important;gap:12px!important;width:100%!important}
+header .header-inner nav .menu-links,header .header-inner nav .menu-acoes{display:flex!important;justify-content:center!important;align-items:center!important;flex-wrap:wrap!important;width:100%!important}
+header .header-inner nav .menu-links{gap:10px 25px!important}
+header .header-inner nav .menu-acoes{gap:10px 14px!important}
+header .header-inner nav .menu-links a{display:inline-flex!important;font-size:16px!important;font-weight:600!important}
+header .header-inner nav .menu-acoes .btn{display:inline-flex!important;font-size:15px!important;padding:12px 21px!important;min-height:46px!important}
+@media(max-width:750px){
+ header .header-inner .brand{gap:13px!important}
+ header .header-inner .logo{width:155px!important;height:125px!important;flex-basis:155px!important}
+ header .header-inner .brand strong{font-size:clamp(22px,5vw,32px)!important}
+ header .header-inner nav .menu-links{gap:8px 16px!important}
+ header .header-inner nav .menu-links a{font-size:14px!important}
+ header .header-inner nav .menu-acoes .btn{font-size:14px!important;padding:10px 13px!important}
+}
+@media(max-width:420px){
+ header .header-inner .logo{width:115px!important;height:110px!important;flex-basis:115px!important}
+ header .header-inner .brand strong{font-size:21px!important}
+ header .header-inner .brand small{font-size:13px!important}
+ header .header-inner nav .menu-acoes .btn{flex:1 1 150px!important}
+}
+
+/* CORRECAO FINAL DO CABECALHO: evita heranca de regras antigas */
+header .container.header-inner{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:12px!important;padding:14px 0 20px!important;min-height:0!important}
+header .header-inner a.brand{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:center!important;gap:20px!important;width:100%!important;max-width:none!important;text-decoration:none!important}
+header .header-inner .brand .logo{width:205px!important;height:185px!important;flex:0 0 205px!important;overflow:visible!important;background:transparent!important}
+header .header-inner .brand .logo img{display:block!important;width:100%!important;height:100%!important;object-fit:contain!important}
+header .header-inner .brand strong{display:block!important;font-size:clamp(29px,3.6vw,45px)!important;line-height:1.12!important;white-space:normal!important}
+header .header-inner .brand small{display:block!important;font-size:18px!important;margin-top:6px!important}
+header .header-inner nav{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;width:100%!important;gap:12px!important;margin:0!important}
+header .header-inner nav .menu-links,header .header-inner nav .menu-acoes{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:center!important;flex-wrap:wrap!important;gap:12px 20px!important;width:100%!important}
+header .header-inner nav .menu-links a{display:inline-flex!important;font-size:16px!important;text-decoration:none!important}
+header .header-inner nav .menu-acoes a.btn{display:inline-flex!important;align-items:center!important;justify-content:center!important;padding:13px 20px!important;min-height:46px!important;font-size:15px!important;white-space:nowrap!important}
+@media(max-width:650px){header .header-inner .brand .logo{width:125px!important;height:120px!important;flex-basis:125px!important}header .header-inner a.brand{gap:10px!important}header .header-inner .brand strong{font-size:clamp(20px,5vw,28px)!important}header .header-inner .brand small{font-size:14px!important}header .header-inner nav .menu-links{gap:10px 14px!important}header .header-inner nav .menu-links a{font-size:14px!important}header .header-inner nav .menu-acoes{gap:9px!important}header .header-inner nav .menu-acoes a.btn{white-space:normal!important;font-size:14px!important;padding:11px 13px!important}}
+@media(max-width:380px){header .header-inner .brand .logo{width:95px!important;height:100px!important;flex-basis:95px!important}header .header-inner .brand strong{font-size:19px!important}}
 </style>
 </head>
 <body>
@@ -270,19 +311,20 @@ header .header-inner nav .btn-cursos:hover{background:#05614e!important}
       </div>
     </a>
 
-    <nav>
-      <a href="#servicos">Serviços</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#trabalhos">Trabalhos</a>
-      <a href="#certificados">Certificados</a>
-     
-<a href="#planos-manutencao">Planos</a>
-
-      <a href="#contato">Contato</a>
-<a class="btn btn-cursos" href="/ead/apresentacao.html" aria-label="Conhecer cursos da Manutec EAD">📚 Cursos</a>
-<a class="btn btn-calculadora" href="/orcamento.html" onclick="if(typeof gtag==='function')gtag('event','clique_calculadora_orcamento');">⚡ Calcular orçamento</a>
-<a class="btn primary" href="https://wa.me/5521969799854" onclick="gtag('event','clique_whatsapp');">        Orçamento
-      </a>
+    <nav aria-label="Navegação principal">
+      <div class="menu-links">
+        <a href="#servicos">Serviços</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#trabalhos">Trabalhos</a>
+        <a href="#certificados">Certificados</a>
+        <a href="#planos-manutencao">Planos</a>
+        <a href="#contato">Contato</a>
+      </div>
+      <div class="menu-acoes">
+        <a class="btn btn-cursos" href="/ead/apresentacao.html">📚 Cursos</a>
+        <a class="btn btn-calculadora" href="/orcamento.html" onclick="if(typeof gtag==='function')gtag('event','clique_calculadora_orcamento');">⚡ Calcular orçamento</a>
+        <a class="btn primary" href="https://wa.me/5521969799854" onclick="if(typeof gtag==='function')gtag('event','clique_whatsapp');">Orçamento pelo WhatsApp</a>
+      </div>
     </nav>
 
   </div>
