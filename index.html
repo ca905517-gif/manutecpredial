@@ -325,6 +325,21 @@ section{scroll-margin-top:205px}
  header .header-inner nav .menu-acoes a.btn{font-size:12px!important;padding:7px 10px!important;min-height:32px!important}
  section,#planos-manutencao{scroll-margin-top:245px}
 }
+
+/* Cabeçalho horizontal compacto — mantém as cores e os links originais */
+header .container.header-inner { gap: 7px !important; padding: 7px 0 10px !important; }
+header .header-inner a.brand { width: 100% !important; gap: 0 !important; justify-content: center !important; }
+header .header-inner .logo-horizontal { display: block; width: min(650px, 100%) !important; height: auto !important; max-height: 118px; object-fit: contain; }
+header .header-inner nav { gap: 7px !important; }
+header .header-inner nav .menu-links { gap: 7px 18px !important; }
+header .header-inner nav .menu-acoes { gap: 7px 12px !important; }
+header .header-inner nav .menu-acoes a.btn { min-height: 38px !important; padding: 8px 16px !important; font-size: 14px !important; }
+@media(max-width:650px) {
+ header .container.header-inner { padding: 7px 0 9px !important; gap: 7px !important; }
+ header .header-inner .logo-horizontal { width: min(100%, 480px) !important; max-height: 95px; }
+ header .header-inner nav .menu-links { gap: 6px 12px !important; }
+ header .header-inner nav .menu-acoes a.btn { padding: 8px 10px !important; font-size: 13px !important; }
+}
 </style>
 </head>
 <body>
@@ -332,13 +347,8 @@ section{scroll-margin-top:205px}
 <header>
   <div class="container header-inner">
 
-    <a class="brand" href="#inicio">
-<div class="logo">
-  <img src="WhatsApp%20ImageMANUTEClogo.jpeg" alt="Logomarca Manutec Predial">
-</div>      <div>
-        <strong>MANUTEC PREDIAL</strong>
-        <small>Soluções Técnicas</small>
-      </div>
+    <a class="brand" href="#inicio" aria-label="Manutec Predial - início">
+      <img class="logo-horizontal" src="logo-manutec-horizontal.png" alt="MANUTEC PREDIAL — Soluções Técnicas: elétrica, automação, refrigeração e climatização">
     </a>
 
     <nav aria-label="Navegação principal">
