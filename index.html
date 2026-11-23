@@ -300,6 +300,31 @@ header .header-inner nav .menu-acoes a.btn{display:inline-flex!important;align-i
 .registro-profissional h3{color:var(--azul);margin-bottom:8px}
 .registro-profissional p{color:var(--texto);margin-bottom:12px}
 .registro-profissional .btn{margin-top:6px}
+
+/* Cabeçalho compacto — mantém as cores e os links originais */
+header .container.header-inner{gap:6px!important;padding:7px 0 10px!important;min-height:0!important}
+header .header-inner a.brand{gap:12px!important}
+header .header-inner .brand .logo{width:112px!important;height:94px!important;flex:0 0 112px!important}
+header .header-inner .brand .logo img{width:100%!important;height:100%!important;object-fit:contain!important}
+header .header-inner .brand strong{font-size:clamp(23px,3vw,34px)!important;line-height:1.08!important}
+header .header-inner .brand small{font-size:15px!important;margin-top:2px!important}
+header .header-inner nav{gap:6px!important}
+header .header-inner nav .menu-links{gap:6px 19px!important}
+header .header-inner nav .menu-links a{font-size:14px!important}
+header .header-inner nav .menu-acoes{gap:7px 10px!important}
+header .header-inner nav .menu-acoes a.btn{font-size:14px!important;padding:8px 14px!important;min-height:36px!important}
+section{scroll-margin-top:205px}
+#planos-manutencao{scroll-margin-top:205px}
+@media(max-width:650px){
+ header .container.header-inner{padding:6px 0 9px!important;gap:6px!important}
+ header .header-inner .brand .logo{width:76px!important;height:72px!important;flex:0 0 76px!important}
+ header .header-inner .brand strong{font-size:clamp(18px,4.8vw,25px)!important}
+ header .header-inner .brand small{font-size:12px!important}
+ header .header-inner nav .menu-links{gap:5px 11px!important}
+ header .header-inner nav .menu-links a{font-size:12px!important}
+ header .header-inner nav .menu-acoes a.btn{font-size:12px!important;padding:7px 10px!important;min-height:32px!important}
+ section,#planos-manutencao{scroll-margin-top:245px}
+}
 </style>
 </head>
 <body>
